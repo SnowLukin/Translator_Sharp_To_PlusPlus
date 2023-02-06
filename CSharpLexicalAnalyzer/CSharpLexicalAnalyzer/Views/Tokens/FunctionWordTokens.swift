@@ -8,8 +8,13 @@
 import SwiftUI
 
 enum FunctionWordTokens: String, Token {
-    case ifStatement = "if"      // if
-    case elseStatement = "else"    // else
+    case ifStatement = "if"
+    case elseStatement = "else"
+    case whileStatement = "while"
+    case integerStatement = "int"
+    case floatStatement = "float"
+    case doubleStatement = "double"
+    case stringStatement = "string"
     
     static func isToken(_ s: String) -> Bool {
         Self.allCases.contains { $0.rawValue == s }

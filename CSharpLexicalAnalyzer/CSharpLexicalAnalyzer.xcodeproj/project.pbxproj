@@ -11,6 +11,7 @@
 		D74E5EDF2990448400FE19B8 /* DividerTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E5EDE2990448400FE19B8 /* DividerTokens.swift */; };
 		D74E5EE12990641100FE19B8 /* IdentifierToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E5EE02990641100FE19B8 /* IdentifierToken.swift */; };
 		D74E5EE32990967400FE19B8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E5EE22990967400FE19B8 /* TestView.swift */; };
+		D74E5EE6299110C300FE19B8 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74E5EE5299110C300FE19B8 /* Extension+String.swift */; };
 		D7717DE429902F6400610513 /* CSharpLexicalAnalyzerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7717DE329902F6400610513 /* CSharpLexicalAnalyzerApp.swift */; };
 		D7717DE629902F6400610513 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7717DE529902F6400610513 /* ContentView.swift */; };
 		D7717DE829902F6900610513 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7717DE729902F6900610513 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		D74E5EDE2990448400FE19B8 /* DividerTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerTokens.swift; sourceTree = "<group>"; };
 		D74E5EE02990641100FE19B8 /* IdentifierToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierToken.swift; sourceTree = "<group>"; };
 		D74E5EE22990967400FE19B8 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		D74E5EE5299110C300FE19B8 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		D7717DE029902F6400610513 /* CSharpLexicalAnalyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSharpLexicalAnalyzer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7717DE329902F6400610513 /* CSharpLexicalAnalyzerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSharpLexicalAnalyzerApp.swift; sourceTree = "<group>"; };
 		D7717DE529902F6400610513 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D74E5EE4299110B400FE19B8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D74E5EE5299110C300FE19B8 /* Extension+String.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		D7717DD729902F6400610513 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 		D7717DE229902F6400610513 /* CSharpLexicalAnalyzer */ = {
 			isa = PBXGroup;
 			children = (
+				D74E5EE4299110B400FE19B8 /* Extensions */,
 				D7717DE329902F6400610513 /* CSharpLexicalAnalyzerApp.swift */,
 				D7717DE529902F6400610513 /* ContentView.swift */,
 				D7717E172990301300610513 /* Views */,
@@ -305,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D74E5EE6299110C300FE19B8 /* Extension+String.swift in Sources */,
 				D74E5EE32990967400FE19B8 /* TestView.swift in Sources */,
 				D7717E1B2990303700610513 /* TestViewModel.swift in Sources */,
 				D74E5EDD29903F6E00FE19B8 /* FunctionWordTokens.swift in Sources */,

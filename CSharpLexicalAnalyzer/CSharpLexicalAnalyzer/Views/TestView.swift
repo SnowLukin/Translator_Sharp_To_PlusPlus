@@ -18,6 +18,9 @@ struct TestView: View {
             Spacer()
         }.frame(height: 400)
             .padding()
+            .onAppear {
+                viewModel.scan(viewModel.sampleCode)
+            }
     }
 }
 
@@ -44,7 +47,7 @@ extension TestView {
             Text("Token codes")
                 .font(.title2)
                 .fontWeight(.semibold)
-            Text(viewModel.scan(viewModel.sampleCode))
+            Text(viewModel.outputCodes.joined(separator: " "))
                 .font(.body)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
