@@ -8,28 +8,28 @@
 import SwiftUI
 
 enum OperationTokens: String, Token {
-    case plus = "+"
-    case minus = "-"
-    case multiplier = "*"
-    case divider = "/"
-    case remainder = "%"
-    case equalTo = "="
-    case exclamationMark = "!"
+    case plus = "+"             // 0
+    case minus = "-"            // 1
+    case multiplier = "*"       // 2
+    case divider = "/"          // 3
+    case remainder = "%"        // 4
+    case equalTo = "="          // 5
+    case exclamationMark = "!"   // 6
     
-    case doublePlus = "++"
-    case doubleMinus = "--"
-    case plusEqualTo = "+="
-    case minusEqualTo = "-="
-    case divideEqualTo = "/="
-    case multiplyEqualTo = "*="
-    case remaindEqualTo = "%="
+    case doublePlus = "++"      // 7
+    case doubleMinus = "--"     // 8
+    case plusEqualTo = "+="     // 9
+    case minusEqualTo = "-="    // 10
+    case divideEqualTo = "/="   // 11
+    case multiplyEqualTo = "*=" // 12
+    case remaindEqualTo = "%="  // 13
     
-    case less = "<"
-    case lessOrEqual = "<="
-    case more = ">"
-    case moreOrEqual = ">="
-    case isEqual = "=="
-    case notEqual = "!="
+    case less = "<"             // 14
+    case lessOrEqual = "<="     // 15
+    case more = ">"             // 16
+    case moreOrEqual = ">="     // 17
+    case isEqual = "=="         // 18
+    case notEqual = "!="        // 19
     
     
     static func isToken(_ s: String) -> Bool {

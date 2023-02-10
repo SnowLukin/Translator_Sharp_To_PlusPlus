@@ -10,23 +10,35 @@ import SwiftUI
 
 final class TestViewModel: ObservableObject {
     @Published var outputCodes: [String] = []
+    @Published var isError: Bool = false // indicates if the given code has an error
+    
     var identifiersTable: [IdentifierToken] = []
     var valuesTable: [ValueToken] = []
     
     let sampleCode = """
-    double c = 3;
-    int b;
-    int a = 1;
-    int e3 = 2;
-    int chh = 0;
-    if (c > 2.79) {
-        b = a * e3;
-        f = "as ;ds";
-        chh += 1;
-    }
-    int count = 0;
-    while(int i = 0; i <= n; i++) {
-        count++;
+    using System;
+    namespace YourNamespace {
+        class Program {
+            static void Main() {
+                    double c = 3;
+                    int b;
+                    int a = 1;
+                    int e3 = 2;
+                    int chh = 0;
+                    if (c > 2.79) {
+                        b = a * e3;
+                        f = "as ;ds";
+                        chh += 1;
+                    }
+                    int count = 0;
+                    while(true) {
+                        count++;
+                        if count == 12 {
+                            break;
+                        }
+                    }
+            }
+        }
     }
     """
     
@@ -36,6 +48,9 @@ final class TestViewModel: ObservableObject {
         var isInQuotes = false  // flag to check if we are inside the string
 
         for char in input {
+            
+            // TODO: Check if there is an error in output by checking two last tokens
+            
             /// Current char is a divider
             if let dividerToken = DividerTokens.setToken(for: (String(char))) {
                 /// If the current char is a <<">>
@@ -46,6 +61,7 @@ final class TestViewModel: ObservableObject {
                     buffer += String(char)
                     continue
                 }
+                
                 /// If word before the divider was a token adding it to the output
                 /// otherwise if there was a word before the divider it is a variable name or a value
                 handleNonDividerTokens(dividerToken: dividerToken, &buffer)
@@ -77,9 +93,9 @@ final class TestViewModel: ObservableObject {
         // if current divider is "(" and before that we had while statement
         if let whileStatementToken = FunctionWordTokens.setToken(for: buffer),
             whileStatementToken == .whileStatement,
-            dividerToken == .startRoundBracket {
+           dividerToken == .startRoundBracket || dividerToken == .whitespace {
             /// buffer == while
-            /// divider == (
+            /// divider == "(" or divider = " "
             outputCodes.append(whileStatementToken.encode())
         } else if let token = setToken(buffer) {   // token
             // First we check if we are having a double operation such as >=, ==, ++, *= etc.
@@ -87,7 +103,6 @@ final class TestViewModel: ObservableObject {
                let prevCode = outputCodes.last,
                let previousToken = OperationTokens.decode(prevCode),
                let newToken = OperationTokens.addTokens(previousToken, currentToken) {
-                
                 /// If we had an operation token before and now, and if we can combine em into double operation
                 /// Remove previous single operation token and append new double operation token
                 outputCodes.removeLast()
@@ -100,7 +115,17 @@ final class TestViewModel: ObservableObject {
                 let valueToken = ValueToken(id: valuesTable.count, type: .double, value: buffer)
                 valuesTable.append(valueToken)
                 outputCodes.append(valueToken.encode())
+            } else if buffer == "true" || buffer == "false" { // bool value
+                let valueToken = ValueToken(id: valuesTable.count, type: .bool, value: buffer)
+                valuesTable.append(valueToken)
+                outputCodes.append(valueToken.encode())
             } else {    // variable name
+                /// Check if the variable name is valid by checking if the buffer has
+                /// specific symbols that cannot be in the variable name
+                if NonIdentifierToken.isToken(buffer) {
+                    isError = true
+                    return
+                }
                 let identToken = IdentifierToken(id: identifiersTable.count, value: buffer)
                 identifiersTable.append(identToken)
                 outputCodes.append(identToken.encode())

@@ -11,12 +11,17 @@ struct TestView: View {
     @StateObject private var viewModel = TestViewModel()
     
     var body: some View {
-        VStack {
-            sharpCodeView()
-            Divider()
-            tokenCodeView()
-            Spacer()
-        }.frame(height: 400)
+        
+        ScrollView {
+            if viewModel.isError {
+                Text("Error in code")
+            } else {
+                sharpCodeView()
+                Divider()
+                tokenCodeView()
+                Spacer()
+            }
+        }.frame(height: 500)
             .padding()
             .onAppear {
                 viewModel.scan(viewModel.sampleCode)
