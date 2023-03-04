@@ -17,22 +17,22 @@ enum LexicalToken {
     case Operator(String)
     case Divider(String)
     
-    func getState() -> (state: LexicalState, value: String) {
+    func getStringRepresentation() -> String {
         switch self {
         case .Identifier(let string):
-            return (.Identifier, string)
+            return "I_" + string
         case .Keyword(let string):
-            return (.Keyword, string)
+            return "K_" + string
         case .IntegerLiteral(let string):
-            return (.IntegerLiteral, string)
+            return "Ni_" + string
         case .FloatLiteral(let string):
-            return (.FloatLiteral, string)
+            return "Nf_" + string
         case .StringLiteral(let string):
-            return (.StringLiteral, string)
+            return "S_" + string
         case .Operator(let string):
-            return (.Operator, string)
+            return "O_" + string
         case .Divider(let string):
-            return (.Divider, string)
+            return "D_" + string
         }
     }
 }
@@ -50,9 +50,9 @@ enum LexicalState {
 
 class LexicalAnalyzer: ObservableObject {
     
-    let keyword: Set<String> = ["class", "if", "else", "while", "int", "float", "double", "string", "namespace", "void", "static", "using", "System", "break", "return"] // Add additional keywords as needed
+    let keyword: Set<String> = ["class", "if", "else", "while", "int", "float", "double", "string", "namespace", "void", "static", "using", "System", "break", "return"]
     let operators: Set<Character> = ["+", "-", "*", "/", "%", "=", ">", "<", "!", "&", "|"]
-    let punctuations: Set<Character> = [".", ",", ";", ":", "(", ")", "[", "]", "{", "}"]
+    let dividers: Set<Character> = [".", ",", ";", ":", "(", ")", "[", "]", "{", "}"]
     let multiCharOperators: Set<String> = ["==", "!=", ">=", "<=", "&&", "||", "++", "--", "+=", "-=", "*=", "/=", "%=", "&=", "|=", "^=", "<<", ">>"]
     
     func translate(input: String) -> [LexicalToken] {
@@ -73,7 +73,8 @@ class LexicalAnalyzer: ObservableObject {
                     buffer.append(char)
                 } else if char == "\"" {
                     state = .StringLiteral
-                } else if punctuations.contains(char) {
+                } else if dividers.contains(char) {
+                    print("here")
                     tokens.append(.Divider(String(char)))
                 } else if operators.contains(char) {
                     state = .Operator
@@ -101,6 +102,9 @@ class LexicalAnalyzer: ObservableObject {
                     buffer.append(char)
                 } else {
                     tokens.append(.IntegerLiteral(buffer))
+                    if dividers.contains(char) {
+                        tokens.append(.Divider(String(char)))
+                    }
                     state = .Start
                     buffer = ""
                     continue
@@ -145,7 +149,9 @@ class LexicalAnalyzer: ObservableObject {
             }
         }
         
+        print(buffer)
         // handle any remaining buffered token
+        // Not sure if its needed
         if let finalToken = finalizeToken(state, buffer) {
             tokens.append(finalToken)
         }

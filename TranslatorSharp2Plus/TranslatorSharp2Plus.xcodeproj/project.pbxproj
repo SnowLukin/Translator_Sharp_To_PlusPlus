@@ -15,6 +15,7 @@
 		D71DC2AF29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D71DC2AD29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodeld */; };
 		D71DC2B729B3136900D079C4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DC2B629B3136900D079C4 /* MainView.swift */; };
 		D71DC2B929B3139800D079C4 /* LexicalAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DC2B829B3139800D079C4 /* LexicalAnalyzer.swift */; };
+		D781A11329B3191900E48633 /* LexicalAlalyzerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A11229B3191900E48633 /* LexicalAlalyzerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		D71DC2B029B3135D00D079C4 /* TranslatorSharp2Plus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TranslatorSharp2Plus.entitlements; sourceTree = "<group>"; };
 		D71DC2B629B3136900D079C4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D71DC2B829B3139800D079C4 /* LexicalAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAnalyzer.swift; sourceTree = "<group>"; };
+		D781A11229B3191900E48633 /* LexicalAlalyzerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAlalyzerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				D71DC2B629B3136900D079C4 /* MainView.swift */,
+				D781A11229B3191900E48633 /* LexicalAlalyzerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				D71DC2AC29B3135D00D079C4 /* Persistence.swift in Sources */,
 				D71DC2AF29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodeld in Sources */,
 				D71DC2A529B3135700D079C4 /* ContentView.swift in Sources */,
+				D781A11329B3191900E48633 /* LexicalAlalyzerView.swift in Sources */,
 				D71DC2B729B3136900D079C4 /* MainView.swift in Sources */,
 				D71DC2B929B3139800D079C4 /* LexicalAnalyzer.swift in Sources */,
 				D71DC2A329B3135700D079C4 /* TranslatorSharp2PlusApp.swift in Sources */,
