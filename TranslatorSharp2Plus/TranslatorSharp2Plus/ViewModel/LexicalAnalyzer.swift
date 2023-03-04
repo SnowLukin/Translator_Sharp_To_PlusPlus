@@ -8,34 +8,6 @@
 
 import SwiftUI
 
-enum LexicalToken {
-    case Identifier(String)
-    case Keyword(String)
-    case IntegerLiteral(String)
-    case FloatLiteral(String)
-    case StringLiteral(String)
-    case Operator(String)
-    case Divider(String)
-    
-    func getState() -> (state: LexicalState, value: String) {
-        switch self {
-        case .Identifier(let string):
-            return (.Identifier, string)
-        case .Keyword(let string):
-            return (.Keyword, string)
-        case .IntegerLiteral(let string):
-            return (.IntegerLiteral, string)
-        case .FloatLiteral(let string):
-            return (.FloatLiteral, string)
-        case .StringLiteral(let string):
-            return (.StringLiteral, string)
-        case .Operator(let string):
-            return (.Operator, string)
-        case .Divider(let string):
-            return (.Divider, string)
-        }
-    }
-}
 
 enum LexicalState {
     case Start
