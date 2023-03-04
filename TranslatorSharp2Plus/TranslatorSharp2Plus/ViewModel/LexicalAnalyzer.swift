@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-<<<<<<< HEAD
-=======
 enum LexicalToken {
     case Identifier(String)
     case Keyword(String)
@@ -39,7 +37,6 @@ enum LexicalToken {
     }
 }
 
->>>>>>> parent of 9f0d6ac (Basic ui, fixed problem with not adding divider token without whitespace)
 enum LexicalState {
     case Start
     case Identifier
@@ -76,11 +73,8 @@ class LexicalAnalyzer: ObservableObject {
                     buffer.append(char)
                 } else if char == "\"" {
                     state = .StringLiteral
-<<<<<<< HEAD
                 } else if Dividers.isToken(char) {
-=======
                 } else if punctuations.contains(char) {
->>>>>>> parent of 9f0d6ac (Basic ui, fixed problem with not adding divider token without whitespace)
                     tokens.append(.Divider(String(char)))
                 } else if operators.contains(char) {
                     state = .Operator
