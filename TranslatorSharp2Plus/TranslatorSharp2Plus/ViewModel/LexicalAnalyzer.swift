@@ -8,35 +8,6 @@
 
 import SwiftUI
 
-enum LexicalToken {
-    case Identifier(String)
-    case Keyword(String)
-    case IntegerLiteral(String)
-    case FloatLiteral(String)
-    case StringLiteral(String)
-    case Operator(String)
-    case Divider(String)
-    
-    func getStringRepresentation() -> String {
-        switch self {
-        case .Identifier(let string):
-            return "I_" + string
-        case .Keyword(let string):
-            return "K_" + string
-        case .IntegerLiteral(let string):
-            return "Ni_" + string
-        case .FloatLiteral(let string):
-            return "Nf_" + string
-        case .StringLiteral(let string):
-            return "S_" + string
-        case .Operator(let string):
-            return "O_" + string
-        case .Divider(let string):
-            return "D_" + string
-        }
-    }
-}
-
 enum LexicalState {
     case Start
     case Identifier
@@ -73,8 +44,7 @@ class LexicalAnalyzer: ObservableObject {
                     buffer.append(char)
                 } else if char == "\"" {
                     state = .StringLiteral
-                } else if dividers.contains(char) {
-                    print("here")
+                } else if Dividers.isToken(char) {
                     tokens.append(.Divider(String(char)))
                 } else if operators.contains(char) {
                     state = .Operator
