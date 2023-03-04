@@ -1,9 +1,10 @@
 //
-//  LexicalTranslator.swift
-//  TranslatorSharp2PlusPlus
+//  LexicalAnalyzer.swift
+//  TranslatorSharp2Plus
 //
-//  Created by Snow Lukin on 03.03.2023.
+//  Created by Snow Lukin on 04.03.2023.
 //
+
 
 import SwiftUI
 
@@ -15,7 +16,6 @@ enum LexicalToken {
     case StringLiteral(String)
     case Operator(String)
     case Divider(String)
-    // Add additional cases as needed for other lexical tokens
     
     func getState() -> (state: LexicalState, value: String) {
         switch self {
@@ -46,17 +46,14 @@ enum LexicalState {
     case StringLiteral
     case Operator
     case Divider
-    // Add additional cases as needed for other lexical states
 }
 
-class LexicalTranslator: ObservableObject {
+class LexicalAnalyzer: ObservableObject {
     
     let keyword: Set<String> = ["class", "if", "else", "while", "int", "float", "double", "string", "namespace", "void", "static", "using", "System", "break", "return"] // Add additional keywords as needed
     let operators: Set<Character> = ["+", "-", "*", "/", "%", "=", ">", "<", "!", "&", "|"]
     let punctuations: Set<Character> = [".", ",", ";", ":", "(", ")", "[", "]", "{", "}"]
     let multiCharOperators: Set<String> = ["==", "!=", ">=", "<=", "&&", "||", "++", "--", "+=", "-=", "*=", "/=", "%=", "&=", "|=", "^=", "<<", ">>"]
-    
-    var tokens: [LexicalToken] = []
     
     func translate(input: String) -> [LexicalToken] {
         var state: LexicalState = .Start
@@ -158,7 +155,7 @@ class LexicalTranslator: ObservableObject {
 
     
     
-    func finalizeToken(_ state: LexicalState, _ token: String) -> LexicalToken? {
+    private func finalizeToken(_ state: LexicalState, _ token: String) -> LexicalToken? {
         switch state {
         case .Identifier:
             return .Identifier(token)
