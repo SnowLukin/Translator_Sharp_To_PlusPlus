@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  TranslatorSharp2PlusPlus
+//  TranslatorSharp2Plus
 //
-//  Created by Snow Lukin on 03.03.2023.
+//  Created by Snow Lukin on 04.03.2023.
 //
 
 import SwiftUI

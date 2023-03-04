@@ -1,9 +1,10 @@
 //
-//  LexicalTranslator.swift
-//  TranslatorSharp2PlusPlus
+//  LexicalAnalyzer.swift
+//  TranslatorSharp2Plus
 //
-//  Created by Snow Lukin on 03.03.2023.
+//  Created by Snow Lukin on 04.03.2023.
 //
+
 
 import SwiftUI
 
@@ -47,7 +48,7 @@ enum LexicalState {
     case Divider
 }
 
-class LexicalTranslator: ObservableObject {
+class LexicalAnalyzer: ObservableObject {
     
     let keyword: Set<String> = ["class", "if", "else", "while", "int", "float", "double", "string", "namespace", "void", "static", "using", "System", "break", "return"] // Add additional keywords as needed
     let operators: Set<Character> = ["+", "-", "*", "/", "%", "=", ">", "<", "!", "&", "|"]

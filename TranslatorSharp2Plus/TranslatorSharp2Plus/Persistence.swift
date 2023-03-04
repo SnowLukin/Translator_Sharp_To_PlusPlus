@@ -1,8 +1,8 @@
 //
 //  Persistence.swift
-//  TranslatorSharp2PlusPlus
+//  TranslatorSharp2Plus
 //
-//  Created by Snow Lukin on 03.03.2023.
+//  Created by Snow Lukin on 04.03.2023.
 //
 
 import CoreData
@@ -31,7 +31,7 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "TranslatorSharp2PlusPlus")
+        container = NSPersistentContainer(name: "TranslatorSharp2Plus")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
