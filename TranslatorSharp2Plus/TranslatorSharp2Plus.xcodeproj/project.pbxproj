@@ -21,6 +21,7 @@
 		D781A13229B3470B00E48633 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12C29B3470B00E48633 /* Operators.swift */; };
 		D781A13329B3470B00E48633 /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12D29B3470B00E48633 /* Keywords.swift */; };
 		D781A13429B3470B00E48633 /* Dividers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12E29B3470B00E48633 /* Dividers.swift */; };
+		D781A13629B3478100E48633 /* LexicalAlalyzerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A13529B3478100E48633 /* LexicalAlalyzerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D781A12C29B3470B00E48633 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		D781A12D29B3470B00E48633 /* Keywords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
 		D781A12E29B3470B00E48633 /* Dividers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dividers.swift; sourceTree = "<group>"; };
+		D781A13529B3478100E48633 /* LexicalAlalyzerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAlalyzerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				D71DC2B629B3136900D079C4 /* MainView.swift */,
+				D781A13529B3478100E48633 /* LexicalAlalyzerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D71DC2AC29B3135D00D079C4 /* Persistence.swift in Sources */,
+				D781A13629B3478100E48633 /* LexicalAlalyzerView.swift in Sources */,
 				D781A13229B3470B00E48633 /* Operators.swift in Sources */,
 				D71DC2AF29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodeld in Sources */,
 				D781A13429B3470B00E48633 /* Dividers.swift in Sources */,
