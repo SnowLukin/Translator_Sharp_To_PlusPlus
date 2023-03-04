@@ -13,9 +13,8 @@ struct TranslatorSharp2PlusApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
-//            ContentView()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

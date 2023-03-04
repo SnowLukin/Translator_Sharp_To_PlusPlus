@@ -8,6 +8,38 @@
 
 import SwiftUI
 
+<<<<<<< HEAD
+=======
+enum LexicalToken {
+    case Identifier(String)
+    case Keyword(String)
+    case IntegerLiteral(String)
+    case FloatLiteral(String)
+    case StringLiteral(String)
+    case Operator(String)
+    case Divider(String)
+    
+    func getState() -> (state: LexicalState, value: String) {
+        switch self {
+        case .Identifier(let string):
+            return (.Identifier, string)
+        case .Keyword(let string):
+            return (.Keyword, string)
+        case .IntegerLiteral(let string):
+            return (.IntegerLiteral, string)
+        case .FloatLiteral(let string):
+            return (.FloatLiteral, string)
+        case .StringLiteral(let string):
+            return (.StringLiteral, string)
+        case .Operator(let string):
+            return (.Operator, string)
+        case .Divider(let string):
+            return (.Divider, string)
+        }
+    }
+}
+
+>>>>>>> parent of 9f0d6ac (Basic ui, fixed problem with not adding divider token without whitespace)
 enum LexicalState {
     case Start
     case Identifier
@@ -21,9 +53,9 @@ enum LexicalState {
 
 class LexicalAnalyzer: ObservableObject {
     
-    let keyword: Set<String> = ["class", "if", "else", "while", "int", "float", "double", "string", "namespace", "void", "static", "using", "System", "break", "return"]
+    let keyword: Set<String> = ["class", "if", "else", "while", "int", "float", "double", "string", "namespace", "void", "static", "using", "System", "break", "return"] // Add additional keywords as needed
     let operators: Set<Character> = ["+", "-", "*", "/", "%", "=", ">", "<", "!", "&", "|"]
-    let dividers: Set<Character> = [".", ",", ";", ":", "(", ")", "[", "]", "{", "}"]
+    let punctuations: Set<Character> = [".", ",", ";", ":", "(", ")", "[", "]", "{", "}"]
     let multiCharOperators: Set<String> = ["==", "!=", ">=", "<=", "&&", "||", "++", "--", "+=", "-=", "*=", "/=", "%=", "&=", "|=", "^=", "<<", ">>"]
     
     func translate(input: String) -> [LexicalToken] {
@@ -44,7 +76,11 @@ class LexicalAnalyzer: ObservableObject {
                     buffer.append(char)
                 } else if char == "\"" {
                     state = .StringLiteral
+<<<<<<< HEAD
                 } else if Dividers.isToken(char) {
+=======
+                } else if punctuations.contains(char) {
+>>>>>>> parent of 9f0d6ac (Basic ui, fixed problem with not adding divider token without whitespace)
                     tokens.append(.Divider(String(char)))
                 } else if operators.contains(char) {
                     state = .Operator
@@ -72,9 +108,6 @@ class LexicalAnalyzer: ObservableObject {
                     buffer.append(char)
                 } else {
                     tokens.append(.IntegerLiteral(buffer))
-                    if dividers.contains(char) {
-                        tokens.append(.Divider(String(char)))
-                    }
                     state = .Start
                     buffer = ""
                     continue
@@ -119,9 +152,7 @@ class LexicalAnalyzer: ObservableObject {
             }
         }
         
-        print(buffer)
         // handle any remaining buffered token
-        // Not sure if its needed
         if let finalToken = finalizeToken(state, buffer) {
             tokens.append(finalToken)
         }
