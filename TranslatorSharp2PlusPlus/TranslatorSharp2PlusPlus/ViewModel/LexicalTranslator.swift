@@ -15,7 +15,6 @@ enum LexicalToken {
     case StringLiteral(String)
     case Operator(String)
     case Divider(String)
-    // Add additional cases as needed for other lexical tokens
     
     func getState() -> (state: LexicalState, value: String) {
         switch self {
@@ -46,7 +45,6 @@ enum LexicalState {
     case StringLiteral
     case Operator
     case Divider
-    // Add additional cases as needed for other lexical states
 }
 
 class LexicalTranslator: ObservableObject {
@@ -55,8 +53,6 @@ class LexicalTranslator: ObservableObject {
     let operators: Set<Character> = ["+", "-", "*", "/", "%", "=", ">", "<", "!", "&", "|"]
     let punctuations: Set<Character> = [".", ",", ";", ":", "(", ")", "[", "]", "{", "}"]
     let multiCharOperators: Set<String> = ["==", "!=", ">=", "<=", "&&", "||", "++", "--", "+=", "-=", "*=", "/=", "%=", "&=", "|=", "^=", "<<", ">>"]
-    
-    var tokens: [LexicalToken] = []
     
     func translate(input: String) -> [LexicalToken] {
         var state: LexicalState = .Start
@@ -158,7 +154,7 @@ class LexicalTranslator: ObservableObject {
 
     
     
-    func finalizeToken(_ state: LexicalState, _ token: String) -> LexicalToken? {
+    private func finalizeToken(_ state: LexicalState, _ token: String) -> LexicalToken? {
         switch state {
         case .Identifier:
             return .Identifier(token)
