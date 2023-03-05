@@ -15,6 +15,7 @@ enum LexicalToken {
     case StringLiteral(String)
     case Operator(String)
     case Divider(String)
+    case Separator(String)
     
     func getStringRepresentation() -> String {
         switch self {
@@ -32,6 +33,8 @@ enum LexicalToken {
             return "O_" + (Operators.getToken(for: string)?.encode() ?? "Error")
         case .Divider(let string):
             return "D_" + (Dividers.getToken(for: string)?.encode() ?? "Error")
+        case .Separator(let string):
+            return string
         }
     }
 }

@@ -9,124 +9,109 @@
 import SwiftUI
 
 
-enum LexicalState {
-    case Start
-    case Identifier
-    case Keyword
-    case IntegerLiteral
-    case FloatLiteral
-    case StringLiteral
-    case Operator
-    case Divider
-}
-
 class LexicalAnalyzer: ObservableObject {
     
-    let keyword: Set<String> = ["class", "if", "else", "while", "int", "float", "double", "string", "namespace", "void", "static", "using", "System", "break", "return"] // Add additional keywords as needed
-    let operators: Set<Character> = ["+", "-", "*", "/", "%", "=", ">", "<", "!", "&", "|"]
-    let punctuations: Set<Character> = [".", ",", ";", ":", "(", ")", "[", "]", "{", "}"]
-    let multiCharOperators: Set<String> = ["==", "!=", ">=", "<=", "&&", "||", "++", "--", "+=", "-=", "*=", "/=", "%=", "&=", "|=", "^=", "<<", ">>"]
+    enum LexicalState {
+        case Start
+        case Identifier
+        case Keyword
+        case IntegerLiteral
+        case FloatLiteral
+        case StringLiteral
+        case Operator
+        case Divider
+    }
     
     func translate(input: String) -> [LexicalToken] {
         var state: LexicalState = .Start
         var tokens: [LexicalToken] = []
         var buffer = ""
         
-        for char in input {
+        var input = input
+        
+        while let char = input.first {
+            print(char)
             switch state {
             case .Start:
-                if char.isLetter {
+                if char.isIdentifier() {
                     state = .Identifier
                     buffer.append(char)
-                } else if char.isWhitespace {
-                    continue
+                } else if Separators.isToken(char) {
+                    tokens.append(.Separator(String(char)))
                 } else if char.isNumber {
                     state = .IntegerLiteral
                     buffer.append(char)
-                } else if char == "\"" {
+                } else if char.isStartOfStringLiteral() {
                     state = .StringLiteral
                 } else if Dividers.isToken(char) {
-                } else if punctuations.contains(char) {
                     tokens.append(.Divider(String(char)))
-                } else if operators.contains(char) {
+                } else if Operators.isToken(char) {
                     state = .Operator
                     buffer.append(char)
-                }
-            case .Identifier:
-                if char.isLetter || char.isNumber || char == "_" {
-                    buffer.append(char)
                 } else {
-                    if keyword.contains(buffer) {
-                        tokens.append(.Keyword(buffer))
-                    } else {
-                        tokens.append(.Identifier(buffer))
-                    }
-                    
-                    state = .Start
-                    buffer = ""
-                    continue // re-evaluate this char in the new state
+                    fatalError("Met unexpected character: \(char).")
+                }
+                input.removeFirst()
+                continue
+            case .Identifier:
+                if char.isIdentifier() {
+                    buffer.append(char)
+                    input.removeFirst()
+                    continue
+                } else {
+                    let token: LexicalToken = Keywords.isToken(buffer) ? .Keyword(buffer) : .Identifier(buffer)
+                    tokens.append(token)
                 }
             case .IntegerLiteral:
                 if char.isNumber {
                     buffer.append(char)
+                    input.removeFirst()
+                    continue
                 } else if char == "." {
                     state = .FloatLiteral
                     buffer.append(char)
+                    input.removeFirst()
+                    continue
                 } else {
                     tokens.append(.IntegerLiteral(buffer))
-                    state = .Start
-                    buffer = ""
-                    continue
                 }
             case .FloatLiteral:
                 if char.isNumber {
                     buffer.append(char)
+                    input.removeFirst()
+                    continue
                 } else {
                     tokens.append(.FloatLiteral(buffer))
-                    state = .Start
-                    buffer = ""
-                    continue
                 }
             case .StringLiteral:
-                if char == "\"" {
+                input.removeFirst()
+                if char.isEndOfStringLiteral() {
                     tokens.append(.StringLiteral(buffer))
-                    state = .Start
-                    buffer = ""
                 } else {
                     buffer.append(char)
+                    continue
                 }
             case .Operator:
-                let possibleOp = buffer + String(char)
-                if multiCharOperators.contains(possibleOp) {
-                    buffer = possibleOp
+                let possibleOperation = buffer + String(char)
+                if Operators.isToken(possibleOperation) {
+                    buffer = possibleOperation
+                    input.removeFirst()
+                    continue
                 } else {
                     tokens.append(.Operator(buffer))
-                    state = .Start
-                    buffer = ""
-                    continue
                 }
             case .Divider:
                 tokens.append(.Divider(String(char)))
-                state = .Start
-                buffer = ""
             case .Keyword:
-                if keyword.contains(buffer) {
-                    tokens.append(.Keyword(buffer))
-                } else {
-                    tokens.append(.Identifier(buffer))
-                }
+                tokens.append(.Keyword(buffer))
             }
-        }
-        
-        // handle any remaining buffered token
-        if let finalToken = finalizeToken(state, buffer) {
-            tokens.append(finalToken)
+            
+            state = .Start
+            buffer.removeAll()
         }
         
         return tokens
     }
-
-    
     
     private func finalizeToken(_ state: LexicalState, _ token: String) -> LexicalToken? {
         switch state {

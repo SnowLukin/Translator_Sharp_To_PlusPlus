@@ -8,13 +8,13 @@
 import Foundation
 
 protocol Lexema: RawRepresentable, CaseIterable, Hashable {
-    static func getToken(for s: String) -> Self?
-    func encode(with padding: Int) -> String
+    func encode() -> String
 }
 
 extension Lexema {
-    static func getToken(for s: String) -> Self? {
-        Self.allCases.first { $0.rawValue as? String == s }
+    static func getToken<T>(for value: T) -> Self? where T: Equatable, T: LosslessStringConvertible {
+        let rawValue = String(value)
+        return Self.allCases.first { $0.rawValue as? String == rawValue }
     }
     
     static func isToken<T>(_ value: T) -> Bool where T: Equatable, T: LosslessStringConvertible {
@@ -22,7 +22,7 @@ extension Lexema {
         return Self.allCases.contains { $0.rawValue as? String == rawValue }
     }
     
-    func encode(with padding: Int = 0) -> String {
-        "\((Self.allCases.firstIndex(of: self) as? Int ?? 0) + padding)"
+    func encode() -> String {
+        "\(Self.allCases.firstIndex(of: self)!)"
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Operators: String, CaseIterable, Lexema {
+enum Operators: String, Lexema {
     case plus = "+"
     case minus = "-"
     case multiply = "*"
@@ -19,4 +19,18 @@ enum Operators: String, CaseIterable, Lexema {
     case exclamationMark = "!"
     case singleAnd = "&"
     case singleOr = "|"
+    
+    case doubleAnd = "&&"
+    case doubleOr = "||"
+    case doublePlus = "++"
+    case doubleMinus = "--"
+    case plusEqualTo = "+="
+    case minusEqualTo = "-="
+    case divideEqualTo = "/="
+    case multiplyEqualTo = "*="
+    case remaindEqualTo = "%="
+    case lessOrEqual = "<="
+    case moreOrEqual = ">="
+    case isEqual = "=="
+    case notEqual = "!="
 }

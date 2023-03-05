@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum Keywords: String, CaseIterable, Lexema {
+enum Keywords: String, Lexema {
     case classKey = "class"
     case ifKey = "if"
     case elseKey = "else"

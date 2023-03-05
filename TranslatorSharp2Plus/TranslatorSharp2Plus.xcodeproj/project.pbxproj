@@ -17,11 +17,12 @@
 		D71DC2B929B3139800D079C4 /* LexicalAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DC2B829B3139800D079C4 /* LexicalAnalyzer.swift */; };
 		D781A12F29B3470B00E48633 /* LexicalToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12929B3470A00E48633 /* LexicalToken.swift */; };
 		D781A13029B3470B00E48633 /* Lexema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12A29B3470A00E48633 /* Lexema.swift */; };
-		D781A13129B3470B00E48633 /* MultiCharOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12B29B3470B00E48633 /* MultiCharOperators.swift */; };
 		D781A13229B3470B00E48633 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12C29B3470B00E48633 /* Operators.swift */; };
 		D781A13329B3470B00E48633 /* Keywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12D29B3470B00E48633 /* Keywords.swift */; };
 		D781A13429B3470B00E48633 /* Dividers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12E29B3470B00E48633 /* Dividers.swift */; };
 		D781A13629B3478100E48633 /* LexicalAlalyzerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A13529B3478100E48633 /* LexicalAlalyzerView.swift */; };
+		D781A13829B354EF00E48633 /* Separators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A13729B354EF00E48633 /* Separators.swift */; };
+		D781A13B29B3BE7A00E48633 /* Character+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A13A29B3BE7A00E48633 /* Character+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,11 +38,12 @@
 		D71DC2B829B3139800D079C4 /* LexicalAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAnalyzer.swift; sourceTree = "<group>"; };
 		D781A12929B3470A00E48633 /* LexicalToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LexicalToken.swift; sourceTree = "<group>"; };
 		D781A12A29B3470A00E48633 /* Lexema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lexema.swift; sourceTree = "<group>"; };
-		D781A12B29B3470B00E48633 /* MultiCharOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiCharOperators.swift; sourceTree = "<group>"; };
 		D781A12C29B3470B00E48633 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		D781A12D29B3470B00E48633 /* Keywords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
 		D781A12E29B3470B00E48633 /* Dividers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dividers.swift; sourceTree = "<group>"; };
 		D781A13529B3478100E48633 /* LexicalAlalyzerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAlalyzerView.swift; sourceTree = "<group>"; };
+		D781A13729B354EF00E48633 /* Separators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separators.swift; sourceTree = "<group>"; };
+		D781A13A29B3BE7A00E48633 /* Character+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			children = (
 				D71DC2A229B3135700D079C4 /* TranslatorSharp2PlusApp.swift */,
 				D71DC2A429B3135700D079C4 /* ContentView.swift */,
+				D781A13929B3BE6C00E48633 /* Extensions */,
 				D781A12729B3464800E48633 /* Model */,
 				D71DC2BB29B313CA00D079C4 /* View */,
 				D71DC2BA29B313C500D079C4 /* ViewModel */,
@@ -124,14 +127,22 @@
 		D781A12829B3467000E48633 /* LexicalEnums */ = {
 			isa = PBXGroup;
 			children = (
+				D781A12929B3470A00E48633 /* LexicalToken.swift */,
+				D781A12A29B3470A00E48633 /* Lexema.swift */,
 				D781A12E29B3470B00E48633 /* Dividers.swift */,
 				D781A12D29B3470B00E48633 /* Keywords.swift */,
-				D781A12A29B3470A00E48633 /* Lexema.swift */,
-				D781A12929B3470A00E48633 /* LexicalToken.swift */,
-				D781A12B29B3470B00E48633 /* MultiCharOperators.swift */,
 				D781A12C29B3470B00E48633 /* Operators.swift */,
+				D781A13729B354EF00E48633 /* Separators.swift */,
 			);
 			path = LexicalEnums;
+			sourceTree = "<group>";
+		};
+		D781A13929B3BE6C00E48633 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D781A13A29B3BE7A00E48633 /* Character+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,13 +215,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D781A13829B354EF00E48633 /* Separators.swift in Sources */,
 				D71DC2AC29B3135D00D079C4 /* Persistence.swift in Sources */,
 				D781A13629B3478100E48633 /* LexicalAlalyzerView.swift in Sources */,
 				D781A13229B3470B00E48633 /* Operators.swift in Sources */,
 				D71DC2AF29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodeld in Sources */,
+				D781A13B29B3BE7A00E48633 /* Character+Extension.swift in Sources */,
 				D781A13429B3470B00E48633 /* Dividers.swift in Sources */,
 				D71DC2A529B3135700D079C4 /* ContentView.swift in Sources */,
-				D781A13129B3470B00E48633 /* MultiCharOperators.swift in Sources */,
 				D781A13029B3470B00E48633 /* Lexema.swift in Sources */,
 				D71DC2B729B3136900D079C4 /* MainView.swift in Sources */,
 				D71DC2B929B3139800D079C4 /* LexicalAnalyzer.swift in Sources */,

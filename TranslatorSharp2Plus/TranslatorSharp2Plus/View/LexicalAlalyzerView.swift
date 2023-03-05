@@ -17,16 +17,31 @@ struct LexicalAlalyzerView: View {
         VStack {
             HStack {
                 TextEditor(text: $sharpCode)
+                    .font(.system(size: 12, design: .monospaced))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                Text(resultTokens)
+                    .autocorrectionDisabled()
+                TextEditor(text: $resultTokens)
+                    .font(.system(size: 12, design: .monospaced))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .disabled(true)
+                    
             }
-            Button("Run") {
-                let tokens = viewModel.translate(input: sharpCode)
-                let tokensToStr = tokens.map { $0.getStringRepresentation() }.joined(separator: " ")
-                resultTokens = tokensToStr
+            HStack {
+                Button("Run") {
+                    let tokens = viewModel.translate(input: sharpCode)
+                    let tokensToStr = tokens.map { $0.getStringRepresentation() }.joined(separator: "")
+                    resultTokens = tokensToStr
+//                    let tokens = viewModel.tokenize(code: sharpCode)
+//                    print(tokens)
+                }
+                .padding()
+                
+                Button("Clear") {
+                    sharpCode = ""
+                    resultTokens = ""
+                }
+                .padding()
             }
-            .padding()
         }
     }
 }
