@@ -15,6 +15,7 @@
 		D71DC2AF29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D71DC2AD29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodeld */; };
 		D71DC2B929B3139800D079C4 /* LexicalAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DC2B829B3139800D079C4 /* LexicalAnalyzer.swift */; };
 		D74D64A329B60CF300A1B158 /* UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64A229B60CF300A1B158 /* UserToken.swift */; };
+		D74D64A529B617FD00A1B158 /* LexicalAnalyzerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64A429B617FD00A1B158 /* LexicalAnalyzerViewModel.swift */; };
 		D781A12F29B3470B00E48633 /* LexicalToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12929B3470A00E48633 /* LexicalToken.swift */; };
 		D781A13029B3470B00E48633 /* Lexema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12A29B3470A00E48633 /* Lexema.swift */; };
 		D781A13229B3470B00E48633 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12C29B3470B00E48633 /* Operators.swift */; };
@@ -36,6 +37,7 @@
 		D71DC2B029B3135D00D079C4 /* TranslatorSharp2Plus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TranslatorSharp2Plus.entitlements; sourceTree = "<group>"; };
 		D71DC2B829B3139800D079C4 /* LexicalAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAnalyzer.swift; sourceTree = "<group>"; };
 		D74D64A229B60CF300A1B158 /* UserToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserToken.swift; sourceTree = "<group>"; };
+		D74D64A429B617FD00A1B158 /* LexicalAnalyzerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAnalyzerViewModel.swift; sourceTree = "<group>"; };
 		D781A12929B3470A00E48633 /* LexicalToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LexicalToken.swift; sourceTree = "<group>"; };
 		D781A12A29B3470A00E48633 /* Lexema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lexema.swift; sourceTree = "<group>"; };
 		D781A12C29B3470B00E48633 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
@@ -99,7 +101,7 @@
 		D71DC2BA29B313C500D079C4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D71DC2B829B3139800D079C4 /* LexicalAnalyzer.swift */,
+				D74D64A429B617FD00A1B158 /* LexicalAnalyzerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -126,6 +128,7 @@
 		D781A12729B3464800E48633 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D71DC2B829B3139800D079C4 /* LexicalAnalyzer.swift */,
 				D781A12929B3470A00E48633 /* LexicalToken.swift */,
 				D74D64A229B60CF300A1B158 /* UserToken.swift */,
 				D781A12A29B3470A00E48633 /* Lexema.swift */,
@@ -225,6 +228,7 @@
 				D781A13429B3470B00E48633 /* Dividers.swift in Sources */,
 				D71DC2A529B3135700D079C4 /* ContentView.swift in Sources */,
 				D781A13029B3470B00E48633 /* Lexema.swift in Sources */,
+				D74D64A529B617FD00A1B158 /* LexicalAnalyzerViewModel.swift in Sources */,
 				D71DC2B929B3139800D079C4 /* LexicalAnalyzer.swift in Sources */,
 				D781A12F29B3470B00E48633 /* LexicalToken.swift in Sources */,
 				D71DC2A329B3135700D079C4 /* TranslatorSharp2PlusApp.swift in Sources */,

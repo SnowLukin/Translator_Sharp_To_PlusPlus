@@ -9,9 +9,7 @@ import SwiftUI
 import AppKit
 
 struct LexicalAlalyzerView: View {
-    @StateObject private var viewModel = LexicalAnalyzer()
-    
-    @State private var resultTokens: String = ""
+    @StateObject private var viewModel = LexicalAnalyzerViewModel()
     
     var body: some View {
         VStack {
@@ -20,7 +18,7 @@ struct LexicalAlalyzerView: View {
                     .font(.system(size: 14))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .autocorrectionDisabled()
-                TextEditor(text: $resultTokens)
+                TextEditor(text: $viewModel.lexicalCode)
                     .font(.system(size: 14, design: .rounded))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .disabled(true)
@@ -28,13 +26,12 @@ struct LexicalAlalyzerView: View {
             }
             HStack {
                 Button("Run") {
-                    resultTokens = viewModel.getTokensForDisplay()
+                    viewModel.run()
                 }
                 .padding()
                 
                 Button("Clear") {
-                    viewModel.code = ""
-                    resultTokens = ""
+                    viewModel.reset()
                 }
                 .padding()
             }

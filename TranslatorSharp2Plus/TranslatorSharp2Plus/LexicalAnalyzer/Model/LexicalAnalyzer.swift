@@ -6,12 +6,11 @@
 //
 
 
-import SwiftUI
+import Foundation
 
-
-class LexicalAnalyzer: ObservableObject {
+class LexicalAnalyzer {
     
-    @Published var code: String = ""
+    var code: String
     
     var identifierTable: [String:UserToken] = [:]
     var valueTable: [String:UserToken] = [:]
@@ -19,8 +18,19 @@ class LexicalAnalyzer: ObservableObject {
     private var buffer = ""
     private var startingIndex = 0
     
-    func getTokensForDisplay() -> String {
-        let tokens = getLexicalTokens()
+    var tokens: [LexicalToken] {
+        var tokens = [LexicalToken]()
+        startingIndex = 0
+        
+        while startingIndex < code.count {
+            let token = performStartState()
+            print(token)
+            tokens.append(token)
+        }
+        return tokens
+    }
+    
+    var tokensRowValue: String {
         var displayString = ""
         for token in tokens {
             switch token {
@@ -35,16 +45,8 @@ class LexicalAnalyzer: ObservableObject {
         return displayString
     }
     
-    private func getLexicalTokens() -> [LexicalToken] {
-        var tokens = [LexicalToken]()
-        startingIndex = 0
-        
-        while startingIndex < code.count {
-            let token = performStartState()
-            print(token)
-            tokens.append(token)
-        }
-        return tokens
+    init(_ code: String = "") {
+        self.code = code
     }
 }
 
