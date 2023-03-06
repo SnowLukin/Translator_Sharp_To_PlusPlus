@@ -4,10 +4,12 @@ Programming langauge translator which translates C# code to C++
 ##1. Lexical analyzer 
 
 Input: C# code
-Output: Token code
+Output: Tokens
 
 TODO: 
    - [ ] Add comments support
+   - [ ] Add support for float values to start with a dot i.e.: .47
+   - [ ] Add support for float values to enclude e/E
    - [ ] Show token tables in UI
    - [ ] Refactor code
    
