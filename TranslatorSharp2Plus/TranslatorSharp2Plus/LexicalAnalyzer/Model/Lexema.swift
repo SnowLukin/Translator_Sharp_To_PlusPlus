@@ -13,13 +13,11 @@ protocol Lexema: RawRepresentable, CaseIterable, Hashable {
 
 extension Lexema {
     static func getToken<T>(for value: T) -> Self? where T: Equatable, T: LosslessStringConvertible {
-        let rawValue = String(value)
-        return Self.allCases.first { $0.rawValue as? String == rawValue }
+        Self.allCases.first { $0.rawValue as? String == String(value) }
     }
     
     static func isToken<T>(_ value: T) -> Bool where T: Equatable, T: LosslessStringConvertible {
-        let rawValue = String(value)
-        return Self.allCases.contains { $0.rawValue as? String == rawValue }
+        Self.allCases.contains { $0.rawValue as? String == String(value) }
     }
     
     func encode() -> String {

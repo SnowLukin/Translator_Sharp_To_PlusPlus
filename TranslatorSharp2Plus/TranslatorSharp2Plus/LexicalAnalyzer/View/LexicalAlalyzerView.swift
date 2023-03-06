@@ -6,38 +6,34 @@
 //
 
 import SwiftUI
+import AppKit
 
 struct LexicalAlalyzerView: View {
     @StateObject private var viewModel = LexicalAnalyzer()
     
-    @State private var sharpCode: String = ""
     @State private var resultTokens: String = ""
     
     var body: some View {
         VStack {
             HStack {
-                TextEditor(text: $sharpCode)
-                    .font(.system(size: 12, design: .monospaced))
+                TextEditor(text: $viewModel.code)
+                    .font(.system(size: 14))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .autocorrectionDisabled()
                 TextEditor(text: $resultTokens)
-                    .font(.system(size: 12, design: .monospaced))
+                    .font(.system(size: 14, design: .rounded))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .disabled(true)
                     
             }
             HStack {
                 Button("Run") {
-                    let tokens = viewModel.translate(input: sharpCode)
-                    let tokensToStr = tokens.map { $0.getStringRepresentation() }.joined(separator: "")
-                    resultTokens = tokensToStr
-//                    let tokens = viewModel.tokenize(code: sharpCode)
-//                    print(tokens)
+                    resultTokens = viewModel.getTokensForDisplay()
                 }
                 .padding()
                 
                 Button("Clear") {
-                    sharpCode = ""
+                    viewModel.code = ""
                     resultTokens = ""
                 }
                 .padding()
