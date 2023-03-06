@@ -24,4 +24,5 @@ enum Keywords: String, Lexema {
     case systemKey = "System"
     case breakKey = "break"
     case returnKey = "return"
+    case newKey = "new"
 }

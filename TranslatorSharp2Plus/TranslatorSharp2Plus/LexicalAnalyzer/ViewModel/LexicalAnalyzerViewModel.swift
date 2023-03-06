@@ -12,16 +12,42 @@ class LexicalAnalyzerViewModel: ObservableObject {
     @Published var code = String()
     @Published var lexicalCode = String()
     
+    @Published var identifierLexemas = [UserToken]()
+    @Published var valueLexemas = [UserToken]()
+    @Published var symbolLexemas = [UserToken]()
+    
     private var analyzer = LexicalAnalyzer()
     
     func run() {
         analyzer.code = code
         lexicalCode = analyzer.tokensRowValue
+        
+        identifierLexemas = analyzer.identifierTable.toSortedArray()
+        valueLexemas = analyzer.valueTable.toSortedArray()
+        symbolLexemas = analyzer.symbolTable.toSortedArray()
     }
     
     func reset() {
+        analyzer.reset()
+        
         code.removeAll()
         lexicalCode.removeAll()
     }
-    
 }
+
+
+//int a = 10;
+//float b = 10.1;
+//string c = "something";
+//
+//int functionName(int number) {
+//    while (number < 20) {
+//        number++;
+//    }
+//    return number;
+//}
+//
+//if functionName(a) == 20 {
+//    c = "abs";
+//}
+//b--;

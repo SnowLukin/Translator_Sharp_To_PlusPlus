@@ -16,4 +16,15 @@ extension Character {
         self == "\""
     }
     
+    var isDivider: Bool {
+        Dividers.isToken(self)
+    }
+    
+    var isOperator: Bool {
+        Operators.isToken(self)
+    }
+    
+    var isSeparator: Bool {
+        Separators.isToken(self)
+    }
 }

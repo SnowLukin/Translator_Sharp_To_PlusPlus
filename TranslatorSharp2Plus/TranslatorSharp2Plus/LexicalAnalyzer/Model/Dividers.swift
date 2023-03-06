@@ -16,4 +16,6 @@ enum Dividers: String, Lexema {
     case semicolon = ";"
     case quotes = "\""
     case dot = "."
+    case bracketLeft = "["
+    case bracketRight = "]"
 }

@@ -16,6 +16,11 @@
 		D71DC2B929B3139800D079C4 /* LexicalAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DC2B829B3139800D079C4 /* LexicalAnalyzer.swift */; };
 		D74D64A329B60CF300A1B158 /* UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64A229B60CF300A1B158 /* UserToken.swift */; };
 		D74D64A529B617FD00A1B158 /* LexicalAnalyzerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64A429B617FD00A1B158 /* LexicalAnalyzerViewModel.swift */; };
+		D74D64A729B687B300A1B158 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64A629B687B300A1B158 /* Dictionary+Extension.swift */; };
+		D74D64A929B6888200A1B158 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64A829B6888200A1B158 /* String+Extension.swift */; };
+		D74D64AC29B6A5B600A1B158 /* LexemaTokenGridModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64AB29B6A5B600A1B158 /* LexemaTokenGridModifier.swift */; };
+		D74D64AE29B6A5D200A1B158 /* LexemaTextEditorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64AD29B6A5D200A1B158 /* LexemaTextEditorModifier.swift */; };
+		D74D64B229B6A5FC00A1B158 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64B129B6A5FC00A1B158 /* View+Extension.swift */; };
 		D781A12F29B3470B00E48633 /* LexicalToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12929B3470A00E48633 /* LexicalToken.swift */; };
 		D781A13029B3470B00E48633 /* Lexema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12A29B3470A00E48633 /* Lexema.swift */; };
 		D781A13229B3470B00E48633 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12C29B3470B00E48633 /* Operators.swift */; };
@@ -38,6 +43,11 @@
 		D71DC2B829B3139800D079C4 /* LexicalAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAnalyzer.swift; sourceTree = "<group>"; };
 		D74D64A229B60CF300A1B158 /* UserToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserToken.swift; sourceTree = "<group>"; };
 		D74D64A429B617FD00A1B158 /* LexicalAnalyzerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAnalyzerViewModel.swift; sourceTree = "<group>"; };
+		D74D64A629B687B300A1B158 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
+		D74D64A829B6888200A1B158 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		D74D64AB29B6A5B600A1B158 /* LexemaTokenGridModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexemaTokenGridModifier.swift; sourceTree = "<group>"; };
+		D74D64AD29B6A5D200A1B158 /* LexemaTextEditorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexemaTextEditorModifier.swift; sourceTree = "<group>"; };
+		D74D64B129B6A5FC00A1B158 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		D781A12929B3470A00E48633 /* LexicalToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LexicalToken.swift; sourceTree = "<group>"; };
 		D781A12A29B3470A00E48633 /* Lexema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lexema.swift; sourceTree = "<group>"; };
 		D781A12C29B3470B00E48633 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
@@ -109,6 +119,8 @@
 		D71DC2BB29B313CA00D079C4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D74D64AF29B6A5E400A1B158 /* Extensions */,
+				D74D64AA29B6A5A200A1B158 /* Modifiers */,
 				D781A13529B3478100E48633 /* LexicalAlalyzerView.swift */,
 			);
 			path = View;
@@ -123,6 +135,23 @@
 				D71DC2BA29B313C500D079C4 /* ViewModel */,
 			);
 			path = LexicalAnalyzer;
+			sourceTree = "<group>";
+		};
+		D74D64AA29B6A5A200A1B158 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				D74D64AB29B6A5B600A1B158 /* LexemaTokenGridModifier.swift */,
+				D74D64AD29B6A5D200A1B158 /* LexemaTextEditorModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		D74D64AF29B6A5E400A1B158 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D74D64B129B6A5FC00A1B158 /* View+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D781A12729B3464800E48633 /* Model */ = {
@@ -144,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				D781A13A29B3BE7A00E48633 /* Character+Extension.swift */,
+				D74D64A829B6888200A1B158 /* String+Extension.swift */,
+				D74D64A629B687B300A1B158 /* Dictionary+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -220,11 +251,16 @@
 			files = (
 				D781A13829B354EF00E48633 /* Separators.swift in Sources */,
 				D71DC2AC29B3135D00D079C4 /* Persistence.swift in Sources */,
+				D74D64B229B6A5FC00A1B158 /* View+Extension.swift in Sources */,
 				D781A13629B3478100E48633 /* LexicalAlalyzerView.swift in Sources */,
+				D74D64A729B687B300A1B158 /* Dictionary+Extension.swift in Sources */,
 				D781A13229B3470B00E48633 /* Operators.swift in Sources */,
 				D74D64A329B60CF300A1B158 /* UserToken.swift in Sources */,
+				D74D64AC29B6A5B600A1B158 /* LexemaTokenGridModifier.swift in Sources */,
 				D71DC2AF29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodeld in Sources */,
 				D781A13B29B3BE7A00E48633 /* Character+Extension.swift in Sources */,
+				D74D64A929B6888200A1B158 /* String+Extension.swift in Sources */,
+				D74D64AE29B6A5D200A1B158 /* LexemaTextEditorModifier.swift in Sources */,
 				D781A13429B3470B00E48633 /* Dividers.swift in Sources */,
 				D71DC2A529B3135700D079C4 /* ContentView.swift in Sources */,
 				D781A13029B3470B00E48633 /* Lexema.swift in Sources */,

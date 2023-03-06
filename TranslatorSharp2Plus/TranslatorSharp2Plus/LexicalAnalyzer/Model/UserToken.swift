@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct UserToken: Hashable {
+struct UserToken: Hashable, Comparable {
+    
     var id: Int
     var value: String
+    
+    static func < (lhs: UserToken, rhs: UserToken) -> Bool {
+        lhs.id < rhs.id
+    }
 }

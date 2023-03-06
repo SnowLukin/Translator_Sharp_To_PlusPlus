@@ -8,13 +8,20 @@
 
 import Foundation
 
+
 class LexicalAnalyzer {
-    
-    var code: String
     
     var identifierTable: [String:UserToken] = [:]   // Names of variable, classes or functions
     var valueTable: [String:UserToken] = [:]    // Numbers
     var symbolTable: [String:UserToken] = [:]   // String values
+    
+    var code: String {
+        didSet {
+            identifierTable.removeAll()
+            valueTable.removeAll()
+            symbolTable.removeAll()
+        }
+    }
     
     private var buffer = ""
     private var startingIndex = 0
@@ -24,7 +31,7 @@ class LexicalAnalyzer {
         startingIndex = 0
         
         while startingIndex < code.count {
-            let token = performStartState()
+            let token = startState()
             // print(token)
             tokens.append(token)
         }
@@ -47,101 +54,87 @@ class LexicalAnalyzer {
     init(_ code: String = "") {
         self.code = code
     }
+    
+    func reset() {
+        code.removeAll()
+        identifierTable.removeAll()
+        valueTable.removeAll()
+        symbolTable.removeAll()
+    }
 }
 
 
 // MARK: - States
 extension LexicalAnalyzer {
-    private func performStartState() -> LexicalToken {
-        let char = code[code.index(code.startIndex, offsetBy: startingIndex)]
+    private func startState() -> LexicalToken {
+        let char = code.at(startingIndex)
         startingIndex += 1
         
-        switch char {
-        case _ where char.isIdentifier:   // Identifiers
-            return performIdentifierState(String(char))
-        case _ where Separators.isToken(char):  // Whitespaces, newlines, tabs
-            return .separator(String(char))
-        case _ where char.isNumber: // Integers, Floats
-            return performIntegerState(String(char))
-        case _ where char.isStringIndicator:     // Start of the string -> "
-            return performStringLiteralState(String(char))
-        case _ where Dividers.isToken(char):    // Dividers: ,.; etc.
-            return .divider(String(char))
-        case _ where Operators.isToken(char):   // Operators: +-= etc.
-            return performOperationState(String(char))
-        default:
-            fatalError("Met unexpected character: \(char).")
-        }
+        if char.isIdentifier { return identifierState(String(char)) }
+        if char.isSeparator { return .separator(String(char)) }
+        if char.isNumber { return integerState(String(char)) }
+        if char.isStringIndicator { return stringLiteralState(String(char)) }
+        if char.isDivider { return .divider(String(char)) }
+        if char.isOperator { return operationState(String(char)) }
+        
+        fatalError("Met unexpected character: \(char).")
     }
     
-    private func performIdentifierState(_ buffer: String = "") -> LexicalToken {
-        let char = code[code.index(code.startIndex, offsetBy: startingIndex)]
+    private func identifierState(_ buffer: String = "") -> LexicalToken {
+        let char = code.at(startingIndex)
         
         if char.isIdentifier {
             startingIndex += 1
-            return performIdentifierState(buffer + String(char))
+            return identifierState(buffer + String(char))
         }
-        if Keywords.isToken(buffer) {  return .keyword(buffer) }
+        if buffer.isKeyword {  return .keyword(buffer) }
         
-        if let existedToken = identifierTable[buffer] { return .identifier(existedToken) }
-        let newToken = UserToken(id: identifierTable.count, value: buffer)
-        identifierTable[buffer] = newToken
-        return .identifier(newToken)
+        return .identifier(identifierTable.safeAdd(buffer))
     }
     
-    private func performIntegerState(_ buffer: String = "") -> LexicalToken {
-        let char = code[code.index(code.startIndex, offsetBy: startingIndex)]
+    
+    
+    private func integerState(_ buffer: String = "") -> LexicalToken {
+        let char = code.at(startingIndex)
         
         switch char {
-        case ".":
+        case ".", "e", "E":
             startingIndex += 1
-            return performFloatState(buffer + String(char))
+            return floatState(buffer + String(char))
         case _ where char.isNumber:
             startingIndex += 1
-            return performIntegerState(buffer + String(char))
+            return integerState(buffer + String(char))
         default:
-            if let existedToken = valueTable[buffer] { return .integerLiteral(existedToken) }
-            let newToken = UserToken(id: valueTable.count, value: buffer)
-            valueTable[buffer] = newToken
-            return .integerLiteral(newToken)
+            return .integerLiteral(valueTable.safeAdd(buffer))
         }
     }
     
-    private func performFloatState(_ buffer: String = "") -> LexicalToken {
-        let char = code[code.index(code.startIndex, offsetBy: startingIndex)]
+    private func floatState(_ buffer: String = "") -> LexicalToken {
+        let char = code.at(startingIndex)
         
         if char.isNumber {
             startingIndex += 1
-            return performFloatState(buffer + String(char))
+            return floatState(buffer + String(char))
         } else {
-            if let existedToken = valueTable[buffer] { return .floatLiteral(existedToken) }
-            let newToken = UserToken(id: valueTable.count, value: buffer)
-            valueTable[buffer] = newToken
-            return .floatLiteral(newToken)
+            return .floatLiteral(valueTable.safeAdd(buffer))
         }
     }
     
-    private func performStringLiteralState(_ buffer: String = "") -> LexicalToken {
-        let char = code[code.index(code.startIndex, offsetBy: startingIndex)]
-        
+    private func stringLiteralState(_ buffer: String = "") -> LexicalToken {
+        let char = code.at(startingIndex)
         startingIndex += 1
-        if !char.isStringIndicator {
-            return performStringLiteralState(buffer + String(char))
-        }
-        let buffer = buffer + String(char)  // Adding the closing " symbol
-        if let existedToken = symbolTable[buffer] { return .stringLiteral(existedToken) }
-        let newToken = UserToken(id: symbolTable.count, value: buffer)
-        symbolTable[buffer] = newToken
-        return .stringLiteral(newToken)
+        let buffer = buffer + String(char)
+        
+        return char.isStringIndicator ? .stringLiteral(symbolTable.safeAdd(buffer)) : stringLiteralState(buffer)
     }
     
-    private func performOperationState(_ buffer: String = "") -> LexicalToken {
-        let char = code[code.index(code.startIndex, offsetBy: startingIndex)]
+    private func operationState(_ buffer: String = "") -> LexicalToken {
+        let char = code.at(startingIndex)
         
         let possibleOperation = buffer + String(char)
-        if Operators.isToken(possibleOperation) {
+        if possibleOperation.isOperator {
             startingIndex += 1
-            return performOperationState(possibleOperation)
+            return operationState(possibleOperation)
         }
         return .operator(buffer)
     }
