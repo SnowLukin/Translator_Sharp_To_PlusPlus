@@ -12,7 +12,7 @@ class LexicalAnalyzerViewModel: ObservableObject {
     @Published var code = String()
     @Published var lexicalCode = String()
     
-    var analyzer = LexicalAnalyzer()
+    private var analyzer = LexicalAnalyzer()
     
     func run() {
         analyzer.code = code

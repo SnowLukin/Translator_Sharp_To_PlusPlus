@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AppKit
 
 struct LexicalAlalyzerView: View {
     @StateObject private var viewModel = LexicalAnalyzerViewModel()
