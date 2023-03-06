@@ -14,4 +14,4 @@ TODO:
    - [ ] Show token tables in UI
    - [ ] Refactor code
    
-<img width="500" alt="Lexical Analyzer" src="Images/LexicalAnalyzer.png?raw=true">
+<img width="700" alt="Lexical Analyzer" src="Images/LexicalAnalyzer.png?raw=true">
