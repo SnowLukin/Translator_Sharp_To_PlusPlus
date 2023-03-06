@@ -12,8 +12,9 @@ class LexicalAnalyzer {
     
     var code: String
     
-    var identifierTable: [String:UserToken] = [:]
-    var valueTable: [String:UserToken] = [:]
+    var identifierTable: [String:UserToken] = [:]   // Names of variable, classes or functions
+    var valueTable: [String:UserToken] = [:]    // Numbers
+    var symbolTable: [String:UserToken] = [:]   // String values
     
     private var buffer = ""
     private var startingIndex = 0
@@ -24,7 +25,7 @@ class LexicalAnalyzer {
         
         while startingIndex < code.count {
             let token = performStartState()
-            print(token)
+            // print(token)
             tokens.append(token)
         }
         return tokens
@@ -34,10 +35,8 @@ class LexicalAnalyzer {
         var displayString = ""
         for token in tokens {
             switch token {
-            case .separator(let value) where value == " ":
-                continue
-            case .separator(_):
-                displayString += token.stringRepresentation
+            case .separator(let value):
+                displayString += value == " " ? "" : token.stringRepresentation
             default:
                 displayString += token.stringRepresentation + " "
             }
@@ -130,9 +129,9 @@ extension LexicalAnalyzer {
             return performStringLiteralState(buffer + String(char))
         }
         let buffer = buffer + String(char)  // Adding the closing " symbol
-        if let existedToken = valueTable[buffer] { return .stringLiteral(existedToken) }
-        let newToken = UserToken(id: valueTable.count, value: buffer)
-        valueTable[buffer] = newToken
+        if let existedToken = symbolTable[buffer] { return .stringLiteral(existedToken) }
+        let newToken = UserToken(id: symbolTable.count, value: buffer)
+        symbolTable[buffer] = newToken
         return .stringLiteral(newToken)
     }
     
