@@ -1,9 +1,10 @@
 # Programming language Translator C# to C++
 Programming langauge translator which translates C# code to C++
 
-##1. Lexical analyzer 
+## 1. Lexical analyzer 
 
 Input: C# code
+
 Output: Tokens
 
 TODO: 
