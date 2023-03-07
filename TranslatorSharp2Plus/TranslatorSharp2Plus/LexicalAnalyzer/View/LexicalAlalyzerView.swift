@@ -21,8 +21,8 @@ struct LexicalAlalyzerView: View {
                 VStack {
                     userTokenGrid(viewModel.identifierLexemas)
                         .lexemaToken(viewModel.identifierLexemas.isEmpty, "Identifiers")
-                    userTokenGrid(viewModel.valueLexemas, prefix1: "N", viewModel.symbolLexemas)
-                        .lexemaToken(viewModel.valueLexemas.isEmpty, "Values")
+                    userTokenGrid(viewModel.numericLexemas, viewModel.stringLiteralLexemas)
+                        .lexemaToken(viewModel.numericLexemas.isEmpty && viewModel.stringLiteralLexemas.isEmpty, "Values")
                 }
             }
             HStack {
@@ -68,13 +68,13 @@ extension LexicalAlalyzerView {
         .buttonStyle(.plain)
     }
     
-    private func userTokenGrid(_ tokens1: [UserToken], prefix1: String = "I", _ tokens2: [UserToken] = [], prefix2: String = "S") -> some View {
+    private func userTokenGrid(_ tokens1: [Token], _ tokens2: [Token] = []) -> some View {
         ScrollView(.vertical) {
-            userTokenList(tokens1, prefix1)
+            userTokenList(tokens1)
                 .padding([.horizontal, .top])
             
             if !tokens2.isEmpty {
-                userTokenList(tokens2, prefix2)
+                userTokenList(tokens2)
                     .padding([.horizontal, .bottom])
             }
         }
@@ -84,14 +84,14 @@ extension LexicalAlalyzerView {
             .cornerRadius(10)
     }
     
-    private func userTokenList(_ tokens: [UserToken], _ prefix: String) -> some View {
+    private func userTokenList(_ tokens: [Token]) -> some View {
         VStack(spacing: 5) {
-            ForEach(tokens, id: \.self) { lexema in
+            ForEach(tokens, id: \.self) { token in
                 HStack {
-                    Text(lexema.value)
+                    Text(token.value)
                     Spacer()
                     Divider()
-                    Text("\(prefix)_\(lexema.id)")
+                    Text(token.toString)
                         .frame(width: 40, alignment: .trailing)
                 }.frame(height: 15)
             }

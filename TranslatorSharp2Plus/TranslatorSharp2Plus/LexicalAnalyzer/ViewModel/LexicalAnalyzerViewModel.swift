@@ -12,13 +12,21 @@ class LexicalAnalyzerViewModel: ObservableObject {
     @Published var code = String()
     @Published var lexicalCode = String()
     
-    @Published var identifierLexemas = [UserToken]()
-    @Published var valueLexemas = [UserToken]()
-    @Published var symbolLexemas = [UserToken]()
+    var identifierLexemas: [Token] {
+        analyzer.identifiers
+    }
+    var numericLexemas: [Token] {
+        analyzer.numerics
+    }
+    
+    var stringLiteralLexemas: [Token] {
+        analyzer.stringLiterals
+    }
     
     private var analyzer = LexicalAnalyzer()
     
     func run() {
+        print(code)
         analyzer.update(with: code, includeSeparators: true)
         updateData()
     }
@@ -31,9 +39,6 @@ class LexicalAnalyzerViewModel: ObservableObject {
     private func updateData() {
         code = analyzer.currentCode
         lexicalCode = analyzer.tokensRowValue
-        identifierLexemas = analyzer.identifierTable.toSortedArray()
-        valueLexemas = analyzer.valueTable.toSortedArray()
-        symbolLexemas = analyzer.symbolTable.toSortedArray()
     }
 }
 

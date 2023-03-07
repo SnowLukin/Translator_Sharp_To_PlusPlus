@@ -8,23 +8,20 @@
 import Foundation
 
 extension Character {
-    var isIdentifier: Bool {
-        self.isLetter || self == "_"
-    }
     
     var isStringIndicator: Bool {
         self == "\""
     }
     
-    var isDivider: Bool {
-        Dividers.isToken(self)
+    var asDivider: Token? {
+        dividers.asToken(self, .divider)
     }
     
-    var isOperator: Bool {
-        Operators.isToken(self)
+    var asOperator: Token? {
+        operators.asToken(String(self), .operator)
     }
     
-    var isSeparator: Bool {
-        Separators.isToken(self)
+    var asSeparator: Token? {
+        separators.asToken(self, .separator)
     }
 }

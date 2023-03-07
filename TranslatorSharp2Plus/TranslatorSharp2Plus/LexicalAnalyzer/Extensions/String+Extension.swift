@@ -8,12 +8,13 @@
 import Foundation
 
 extension String {
-    var isKeyword: Bool {
-        Keywords.isToken(self)
+    
+    var asKeyword: Token? {
+        keywords.asToken(self, .keyword)
     }
     
-    var isOperator: Bool {
-        Operators.isToken(self)
+    var asOperator: Token? {
+        operators.asToken(self, .operator)
     }
     
     func at(_ index: Int) -> Character {
