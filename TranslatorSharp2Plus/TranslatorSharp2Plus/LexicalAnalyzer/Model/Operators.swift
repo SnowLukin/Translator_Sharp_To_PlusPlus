@@ -11,7 +11,6 @@ enum Operators: String, Lexema {
     case plus = "+"
     case minus = "-"
     case multiply = "*"
-    case divide = "/"
     case remainder = "%"
     case equal = "="
     case more = ">"
