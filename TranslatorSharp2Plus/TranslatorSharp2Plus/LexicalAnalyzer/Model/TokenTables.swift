@@ -1,5 +1,5 @@
 //
-//  Dividers.swift
+//  TokenTables.swift
 //  TranslatorSharp2Plus
 //
 //  Created by Snow Lukin on 07.03.2023.
@@ -47,11 +47,13 @@ let operators: [String:Int] = [
     "==" : 21,
     "!=": 22
 ]
+
 let separators: [Character:Int] = [
     " ": 0,
     "\n": 1,
     "\t": 2
 ]
+
 let keywords: [String:Int] = [
     "class" : 0,
     "if" : 1,
