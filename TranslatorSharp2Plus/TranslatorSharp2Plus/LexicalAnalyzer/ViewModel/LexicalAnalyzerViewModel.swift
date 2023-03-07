@@ -19,7 +19,7 @@ class LexicalAnalyzerViewModel: ObservableObject {
     private var analyzer = LexicalAnalyzer()
     
     func run() {
-        analyzer.update(with: code)
+        analyzer.update(with: code, includeSeparators: true)
         updateData()
     }
     

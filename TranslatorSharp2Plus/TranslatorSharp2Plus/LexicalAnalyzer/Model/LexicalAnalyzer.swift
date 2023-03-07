@@ -55,9 +55,11 @@ class LexicalAnalyzer {
     
     private var buffer = ""
     private var startingIndex = 0
+    private var includeSeparators = false
     
-    func update(with code: String = "") {
+    func update(with code: String = "", includeSeparators: Bool = false) {
         self.code = code
+        self.includeSeparators = includeSeparators
         resetTables()
         updateTokens()
     }
@@ -88,7 +90,7 @@ extension LexicalAnalyzer {
         startingIndex += 1
         
         if char.isIdentifier { return identifierState(String(char)) }
-        if char.isSeparator { return .separator(String(char)) }
+        if char.isSeparator { return includeSeparators ? .separator(String(char)) : nil }
         if char == "." { return floatState("0" + String(char)) }
         if char.isNumber { return intState(String(char)) }
         if char.isStringIndicator { return stringState(String(char)) }
