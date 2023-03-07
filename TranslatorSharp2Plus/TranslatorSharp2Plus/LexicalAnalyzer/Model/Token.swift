@@ -12,6 +12,26 @@ struct Token: Hashable, Comparable {
     let value: String
     let type: TokenType
     
+    var rawValue: String {
+        switch type {
+        case .separator:
+            return value == " " ? "" : value
+        default:
+            return type.prefix + String(id) + " "
+        }
+    }
+    
+    var precedence: Int {
+        switch value {
+        case "*", "/":
+            return 2
+        case "+", "-":
+            return 1
+        default:
+            return 0
+        }
+    }
+    
     init(_ id: Int, _ value: String, _ type: TokenType) {
         self.id = id
         self.value = value
@@ -26,14 +46,5 @@ struct Token: Hashable, Comparable {
     
     static func < (lhs: Token, rhs: Token) -> Bool {
         lhs.id < rhs.id
-    }
-    
-    var toString: String {
-        switch type {
-        case .separator:
-            return value == " " ? "" : value
-        default:
-            return type.prefix + String(id) + " "
-        }
     }
 }

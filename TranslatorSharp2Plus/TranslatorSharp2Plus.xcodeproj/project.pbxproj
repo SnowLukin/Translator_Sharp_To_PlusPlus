@@ -20,11 +20,16 @@
 		D74D64AE29B6A5D200A1B158 /* LexemaTextEditorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64AD29B6A5D200A1B158 /* LexemaTextEditorModifier.swift */; };
 		D74D64B229B6A5FC00A1B158 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64B129B6A5FC00A1B158 /* View+Extension.swift */; };
 		D74D64B729B78FDA00A1B158 /* PatternMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64B629B78FDA00A1B158 /* PatternMatching.swift */; };
-		D74D64B929B7969500A1B158 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64B829B7969500A1B158 /* Array+Extension.swift */; };
+		D74D64B929B7969500A1B158 /* Array+Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64B829B7969500A1B158 /* Array+Token.swift */; };
 		D74D64BB29B7A48B00A1B158 /* TokenTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64BA29B7A48B00A1B158 /* TokenTables.swift */; };
+		D74D64BF29B7CE2D00A1B158 /* PolishNotationConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64BE29B7CE2D00A1B158 /* PolishNotationConverter.swift */; };
+		D75EE33D29B7D94700AE0968 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75EE33C29B7D94700AE0968 /* Stack.swift */; };
+		D75EE33F29B7D95800AE0968 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75EE33E29B7D95800AE0968 /* Queue.swift */; };
+		D75EE34529B7DC9F00AE0968 /* PolishNotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75EE34429B7DC9F00AE0968 /* PolishNotationView.swift */; };
 		D781A12F29B3470B00E48633 /* TokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A12929B3470A00E48633 /* TokenType.swift */; };
 		D781A13629B3478100E48633 /* LexicalAlalyzerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A13529B3478100E48633 /* LexicalAlalyzerView.swift */; };
 		D781A13B29B3BE7A00E48633 /* Character+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781A13A29B3BE7A00E48633 /* Character+Extension.swift */; };
+		D7A7EC1329B7E2EE008B3B02 /* PolishNotationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A7EC1229B7E2EE008B3B02 /* PolishNotationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,11 +48,16 @@
 		D74D64AD29B6A5D200A1B158 /* LexemaTextEditorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexemaTextEditorModifier.swift; sourceTree = "<group>"; };
 		D74D64B129B6A5FC00A1B158 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		D74D64B629B78FDA00A1B158 /* PatternMatching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternMatching.swift; sourceTree = "<group>"; };
-		D74D64B829B7969500A1B158 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		D74D64B829B7969500A1B158 /* Array+Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Token.swift"; sourceTree = "<group>"; };
 		D74D64BA29B7A48B00A1B158 /* TokenTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTables.swift; sourceTree = "<group>"; };
+		D74D64BE29B7CE2D00A1B158 /* PolishNotationConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolishNotationConverter.swift; sourceTree = "<group>"; };
+		D75EE33C29B7D94700AE0968 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		D75EE33E29B7D95800AE0968 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		D75EE34429B7DC9F00AE0968 /* PolishNotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolishNotationView.swift; sourceTree = "<group>"; };
 		D781A12929B3470A00E48633 /* TokenType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenType.swift; sourceTree = "<group>"; };
 		D781A13529B3478100E48633 /* LexicalAlalyzerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAlalyzerView.swift; sourceTree = "<group>"; };
 		D781A13A29B3BE7A00E48633 /* Character+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Extension.swift"; sourceTree = "<group>"; };
+		D7A7EC1229B7E2EE008B3B02 /* PolishNotationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolishNotationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +92,7 @@
 			children = (
 				D71DC2A229B3135700D079C4 /* TranslatorSharp2PlusApp.swift */,
 				D71DC2A429B3135700D079C4 /* ContentView.swift */,
+				D74D64BD29B7CE1900A1B158 /* PolishNotationConverter */,
 				D74D64A129B4C60600A1B158 /* LexicalAnalyzer */,
 				D71DC2A629B3135D00D079C4 /* Assets.xcassets */,
 				D71DC2B029B3135D00D079C4 /* TranslatorSharp2Plus.entitlements */,
@@ -144,6 +155,34 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D74D64BD29B7CE1900A1B158 /* PolishNotationConverter */ = {
+			isa = PBXGroup;
+			children = (
+				D75EE33B29B7D93900AE0968 /* Model */,
+				D75EE34029B7DAC900AE0968 /* View */,
+				D7A7EC1129B7E2D2008B3B02 /* ViewModel */,
+			);
+			path = PolishNotationConverter;
+			sourceTree = "<group>";
+		};
+		D75EE33B29B7D93900AE0968 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D74D64BE29B7CE2D00A1B158 /* PolishNotationConverter.swift */,
+				D75EE33C29B7D94700AE0968 /* Stack.swift */,
+				D75EE33E29B7D95800AE0968 /* Queue.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D75EE34029B7DAC900AE0968 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D75EE34429B7DC9F00AE0968 /* PolishNotationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D781A12729B3464800E48633 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,10 +200,18 @@
 				D781A13A29B3BE7A00E48633 /* Character+Extension.swift */,
 				D74D64A829B6888200A1B158 /* String+Extension.swift */,
 				D74D64A629B687B300A1B158 /* Dictionary+Extension.swift */,
-				D74D64B829B7969500A1B158 /* Array+Extension.swift */,
+				D74D64B829B7969500A1B158 /* Array+Token.swift */,
 				D74D64B629B78FDA00A1B158 /* PatternMatching.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D7A7EC1129B7E2D2008B3B02 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D7A7EC1229B7E2EE008B3B02 /* PolishNotationViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,19 +286,24 @@
 			files = (
 				D74D64B229B6A5FC00A1B158 /* View+Extension.swift in Sources */,
 				D781A13629B3478100E48633 /* LexicalAlalyzerView.swift in Sources */,
-				D74D64B929B7969500A1B158 /* Array+Extension.swift in Sources */,
+				D74D64B929B7969500A1B158 /* Array+Token.swift in Sources */,
+				D75EE34529B7DC9F00AE0968 /* PolishNotationView.swift in Sources */,
+				D75EE33F29B7D95800AE0968 /* Queue.swift in Sources */,
 				D74D64BB29B7A48B00A1B158 /* TokenTables.swift in Sources */,
+				D7A7EC1329B7E2EE008B3B02 /* PolishNotationViewModel.swift in Sources */,
 				D74D64A729B687B300A1B158 /* Dictionary+Extension.swift in Sources */,
 				D74D64A329B60CF300A1B158 /* Token.swift in Sources */,
 				D74D64AC29B6A5B600A1B158 /* LexemaTokenGridModifier.swift in Sources */,
 				D781A13B29B3BE7A00E48633 /* Character+Extension.swift in Sources */,
 				D74D64A929B6888200A1B158 /* String+Extension.swift in Sources */,
 				D74D64B729B78FDA00A1B158 /* PatternMatching.swift in Sources */,
+				D75EE33D29B7D94700AE0968 /* Stack.swift in Sources */,
 				D74D64AE29B6A5D200A1B158 /* LexemaTextEditorModifier.swift in Sources */,
 				D71DC2A529B3135700D079C4 /* ContentView.swift in Sources */,
 				D74D64A529B617FD00A1B158 /* LexicalAnalyzerViewModel.swift in Sources */,
 				D71DC2B929B3139800D079C4 /* LexicalAnalyzer.swift in Sources */,
 				D781A12F29B3470B00E48633 /* TokenType.swift in Sources */,
+				D74D64BF29B7CE2D00A1B158 /* PolishNotationConverter.swift in Sources */,
 				D71DC2A329B3135700D079C4 /* TranslatorSharp2PlusApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -91,7 +91,7 @@ extension LexicalAlalyzerView {
                     Text(token.value)
                     Spacer()
                     Divider()
-                    Text(token.toString)
+                    Text(token.rawValue)
                         .frame(width: 40, alignment: .trailing)
                 }.frame(height: 15)
             }

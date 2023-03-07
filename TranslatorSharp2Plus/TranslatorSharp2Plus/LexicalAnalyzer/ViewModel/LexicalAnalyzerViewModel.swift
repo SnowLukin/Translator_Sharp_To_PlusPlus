@@ -26,7 +26,6 @@ class LexicalAnalyzerViewModel: ObservableObject {
     private var analyzer = LexicalAnalyzer()
     
     func run() {
-        print(code)
         analyzer.update(with: code, includeSeparators: true)
         updateData()
     }
@@ -38,7 +37,7 @@ class LexicalAnalyzerViewModel: ObservableObject {
     
     private func updateData() {
         code = analyzer.currentCode
-        lexicalCode = analyzer.tokensRowValue
+        lexicalCode = analyzer.lexemas.stringRepresentation
     }
 }
 

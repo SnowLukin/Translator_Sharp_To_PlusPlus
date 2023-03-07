@@ -10,10 +10,6 @@ import Foundation
 
 class LexicalAnalyzer {
     
-    var tokensRowValue: String {
-        tokens.map { $0.toString }.joined()
-    }
-    
     var currentCode: String {
         code
     }
@@ -92,27 +88,16 @@ extension LexicalAnalyzer {
             return stringState(String(char))
         case dividers:
             return char.asDivider!
+        case "/" where code.at(startingIndex) == "/":
+            return commentState()
+        case "/" where code.at(startingIndex) == "*":
+            return multiCommentState()
         case operators:
             return operatorState(String(char))
-        case "/":
-            return startingCommentState()
         default:
             fatalError("Met unexpected character: \(char).")
         }
         
-    }
-    
-    private func startingCommentState() -> Token? {
-        let char = code.at(startingIndex)
-        
-        switch char {
-        case "/":
-            return commentState()
-        case "*":
-            return multiCommentState()
-        default:
-            fatalError("Unexpected symbol after \"/\": \(char)")
-        }
     }
     
     private func commentState() -> Token? {
