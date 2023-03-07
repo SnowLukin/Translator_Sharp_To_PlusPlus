@@ -11,8 +11,6 @@
 		D71DC2A529B3135700D079C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DC2A429B3135700D079C4 /* ContentView.swift */; };
 		D71DC2A729B3135D00D079C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D71DC2A629B3135D00D079C4 /* Assets.xcassets */; };
 		D71DC2AA29B3135D00D079C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D71DC2A929B3135D00D079C4 /* Preview Assets.xcassets */; };
-		D71DC2AC29B3135D00D079C4 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DC2AB29B3135D00D079C4 /* Persistence.swift */; };
-		D71DC2AF29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D71DC2AD29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodeld */; };
 		D71DC2B929B3139800D079C4 /* LexicalAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71DC2B829B3139800D079C4 /* LexicalAnalyzer.swift */; };
 		D74D64A329B60CF300A1B158 /* UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64A229B60CF300A1B158 /* UserToken.swift */; };
 		D74D64A529B617FD00A1B158 /* LexicalAnalyzerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D64A429B617FD00A1B158 /* LexicalAnalyzerViewModel.swift */; };
@@ -37,8 +35,6 @@
 		D71DC2A429B3135700D079C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D71DC2A629B3135D00D079C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D71DC2A929B3135D00D079C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D71DC2AB29B3135D00D079C4 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		D71DC2AE29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TranslatorSharp2Plus.xcdatamodel; sourceTree = "<group>"; };
 		D71DC2B029B3135D00D079C4 /* TranslatorSharp2Plus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TranslatorSharp2Plus.entitlements; sourceTree = "<group>"; };
 		D71DC2B829B3139800D079C4 /* LexicalAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAnalyzer.swift; sourceTree = "<group>"; };
 		D74D64A229B60CF300A1B158 /* UserToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserToken.swift; sourceTree = "<group>"; };
@@ -92,9 +88,7 @@
 				D71DC2A429B3135700D079C4 /* ContentView.swift */,
 				D74D64A129B4C60600A1B158 /* LexicalAnalyzer */,
 				D71DC2A629B3135D00D079C4 /* Assets.xcassets */,
-				D71DC2AB29B3135D00D079C4 /* Persistence.swift */,
 				D71DC2B029B3135D00D079C4 /* TranslatorSharp2Plus.entitlements */,
-				D71DC2AD29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodeld */,
 				D71DC2A829B3135D00D079C4 /* Preview Content */,
 			);
 			path = TranslatorSharp2Plus;
@@ -250,14 +244,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D781A13829B354EF00E48633 /* Separators.swift in Sources */,
-				D71DC2AC29B3135D00D079C4 /* Persistence.swift in Sources */,
 				D74D64B229B6A5FC00A1B158 /* View+Extension.swift in Sources */,
 				D781A13629B3478100E48633 /* LexicalAlalyzerView.swift in Sources */,
 				D74D64A729B687B300A1B158 /* Dictionary+Extension.swift in Sources */,
 				D781A13229B3470B00E48633 /* Operators.swift in Sources */,
 				D74D64A329B60CF300A1B158 /* UserToken.swift in Sources */,
 				D74D64AC29B6A5B600A1B158 /* LexemaTokenGridModifier.swift in Sources */,
-				D71DC2AF29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodeld in Sources */,
 				D781A13B29B3BE7A00E48633 /* Character+Extension.swift in Sources */,
 				D74D64A929B6888200A1B158 /* String+Extension.swift in Sources */,
 				D74D64AE29B6A5D200A1B158 /* LexemaTextEditorModifier.swift in Sources */,
@@ -466,19 +458,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		D71DC2AD29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D71DC2AE29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodel */,
-			);
-			currentVersion = D71DC2AE29B3135D00D079C4 /* TranslatorSharp2Plus.xcdatamodel */;
-			path = TranslatorSharp2Plus.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = D71DC29729B3135700D079C4 /* Project object */;
 }
