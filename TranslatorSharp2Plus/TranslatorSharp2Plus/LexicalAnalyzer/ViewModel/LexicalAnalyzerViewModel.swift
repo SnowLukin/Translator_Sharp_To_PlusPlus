@@ -19,19 +19,21 @@ class LexicalAnalyzerViewModel: ObservableObject {
     private var analyzer = LexicalAnalyzer()
     
     func run() {
-        analyzer.code = code
-        lexicalCode = analyzer.tokensRowValue
-        
-        identifierLexemas = analyzer.identifierTable.toSortedArray()
-        valueLexemas = analyzer.valueTable.toSortedArray()
-        symbolLexemas = analyzer.symbolTable.toSortedArray()
+        analyzer.update(with: code)
+        updateData()
     }
     
     func reset() {
-        analyzer.reset()
-        
-        code.removeAll()
-        lexicalCode.removeAll()
+        analyzer.update()
+        updateData()
+    }
+    
+    private func updateData() {
+        code = analyzer.currentCode
+        lexicalCode = analyzer.tokensRowValue
+        identifierLexemas = analyzer.identifierTable.toSortedArray()
+        valueLexemas = analyzer.valueTable.toSortedArray()
+        symbolLexemas = analyzer.symbolTable.toSortedArray()
     }
 }
 
