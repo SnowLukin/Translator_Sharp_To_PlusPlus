@@ -11,7 +11,7 @@ TODO:
    - [ ] Add comments support
    - [ ] Add support for float values to start with a dot i.e.: .47
    - [ ] Add support for float values to enclude e/E
-   - [ ] Show token tables in UI
+   - [x] Show token tables in UI
    - [ ] Refactor code
    
 <img width="700" alt="Lexical Analyzer" src="Images/LexicalAnalyzer.png?raw=true">
