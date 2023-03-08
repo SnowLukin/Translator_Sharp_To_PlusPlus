@@ -1,20 +1,21 @@
 //
-//  TokenType.swift
-//  TranslatorSharp2Plus
+//  LexemaType.swift
+//  LanguageParser
 //
-//  Created by Snow Lukin on 04.03.2023.
+//  Created by Snow Lukin on 08.03.2023.
 //
 
 import Foundation
 
-enum TokenType: Hashable {
+enum LexemaType: Hashable {
     case identifier
     case keyword
-    case numericLiteral
-    case stringLiteral
+    case constant
+    case literal
     case `operator`
     case divider
     case separator
+    case comment
     
     var prefix: String {
         switch self {
@@ -22,15 +23,17 @@ enum TokenType: Hashable {
             return "I_"
         case .keyword:
             return "K_"
-        case .numericLiteral:
+        case .constant:
             return "N_"
-        case .stringLiteral:
+        case .literal:
             return "S_"
         case .operator:
             return "O_"
         case .divider:
             return "D_"
         case .separator:
+            return ""
+        default:
             return ""
         }
     }

@@ -1,13 +1,13 @@
 //
-//  LexicalAlalyzerView.swift
-//  TranslatorSharp2Plus
+//  LexicalAnalyzerView.swift
+//  LanguageParser
 //
-//  Created by Snow Lukin on 04.03.2023.
+//  Created by Snow Lukin on 09.03.2023.
 //
 
 import SwiftUI
 
-struct LexicalAlalyzerView: View {
+struct LexicalAnalyzerView: View {
     @StateObject private var viewModel = LexicalAnalyzerViewModel()
     
     var body: some View {
@@ -21,8 +21,8 @@ struct LexicalAlalyzerView: View {
                 VStack {
                     userTokenGrid(viewModel.identifierLexemas)
                         .lexemaToken(viewModel.identifierLexemas.isEmpty, "Identifiers")
-                    userTokenGrid(viewModel.numericLexemas, viewModel.stringLiteralLexemas)
-                        .lexemaToken(viewModel.numericLexemas.isEmpty && viewModel.stringLiteralLexemas.isEmpty, "Values")
+                    userTokenGrid(viewModel.constantLexemas, viewModel.literalLexemas)
+                        .lexemaToken(viewModel.constantLexemas.isEmpty && viewModel.literalLexemas.isEmpty, "Values")
                 }
             }
             HStack {
@@ -33,13 +33,14 @@ struct LexicalAlalyzerView: View {
     }
 }
 
-struct LexicalAlalyzerView_Previews: PreviewProvider {
+struct LexicalAnalyzerView_Previews: PreviewProvider {
     static var previews: some View {
-        LexicalAlalyzerView()
+        LexicalAnalyzerView()
     }
 }
 
-extension LexicalAlalyzerView {
+
+extension LexicalAnalyzerView {
     private var runButton: some View {
         Button {
             viewModel.run()
@@ -68,13 +69,13 @@ extension LexicalAlalyzerView {
         .buttonStyle(.plain)
     }
     
-    private func userTokenGrid(_ tokens1: [Token], _ tokens2: [Token] = []) -> some View {
+    private func userTokenGrid(_ lexemas1: [Lexema], _ lexemas2: [Lexema] = []) -> some View {
         ScrollView(.vertical) {
-            userTokenList(tokens1)
+            userTokenList(lexemas1)
                 .padding([.horizontal, .top])
             
-            if !tokens2.isEmpty {
-                userTokenList(tokens2)
+            if !lexemas2.isEmpty {
+                userTokenList(lexemas2)
                     .padding([.horizontal, .bottom])
             }
         }
@@ -84,14 +85,14 @@ extension LexicalAlalyzerView {
             .cornerRadius(10)
     }
     
-    private func userTokenList(_ tokens: [Token]) -> some View {
+    private func userTokenList(_ lexemas: [Lexema]) -> some View {
         VStack(spacing: 5) {
-            ForEach(tokens, id: \.self) { token in
+            ForEach(lexemas, id: \.self) { lexema in
                 HStack {
-                    Text(token.value)
+                    Text(lexema.value)
                     Spacer()
                     Divider()
-                    Text(token.toString)
+                    Text(lexema.rawValue)
                         .frame(width: 40, alignment: .trailing)
                 }.frame(height: 15)
             }

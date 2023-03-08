@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D748DC4329B8C486006D1039 /* LanguageParserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC4229B8C486006D1039 /* LanguageParserApp.swift */; };
+		D748DC4529B8C486006D1039 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC4429B8C486006D1039 /* ContentView.swift */; };
+		D748DC4729B8C489006D1039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D748DC4629B8C489006D1039 /* Assets.xcassets */; };
+		D748DC4A29B8C489006D1039 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D748DC4929B8C489006D1039 /* Preview Assets.xcassets */; };
+		D748DC5429B8C4AF006D1039 /* LexicalAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC5329B8C4AF006D1039 /* LexicalAnalyzer.swift */; };
+		D748DC6629B8E20E006D1039 /* Lexema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC6529B8E20E006D1039 /* Lexema.swift */; };
+		D748DC6829B8E215006D1039 /* LexemaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC6729B8E215006D1039 /* LexemaType.swift */; };
+		D748DC6C29B8E5BB006D1039 /* UniqueLexemaTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC6B29B8E5BA006D1039 /* UniqueLexemaTable.swift */; };
+		D748DC6E29B93A27006D1039 /* SystemTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC6D29B93A27006D1039 /* SystemTables.swift */; };
+		D748DC7029B93E7C006D1039 /* LexicalPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC6F29B93E7C006D1039 /* LexicalPattern.swift */; };
+		D748DC7429B95186006D1039 /* LexicalAnalyzerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC7329B95186006D1039 /* LexicalAnalyzerViewModel.swift */; };
+		D748DC7929B951B1006D1039 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC7829B951B1006D1039 /* View+Extension.swift */; };
+		D748DC7C29B951E7006D1039 /* LexemaTokenGridModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC7B29B951E7006D1039 /* LexemaTokenGridModifier.swift */; };
+		D748DC7E29B951FC006D1039 /* LexemaTextEditorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC7D29B951FC006D1039 /* LexemaTextEditorModifier.swift */; };
+		D748DC8029B9521B006D1039 /* LexicalAnalyzerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC7F29B9521B006D1039 /* LexicalAnalyzerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D748DC3F29B8C486006D1039 /* LanguageParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D748DC4229B8C486006D1039 /* LanguageParserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageParserApp.swift; sourceTree = "<group>"; };
+		D748DC4429B8C486006D1039 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D748DC4629B8C489006D1039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D748DC4929B8C489006D1039 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D748DC4B29B8C489006D1039 /* LanguageParser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LanguageParser.entitlements; sourceTree = "<group>"; };
+		D748DC5329B8C4AF006D1039 /* LexicalAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAnalyzer.swift; sourceTree = "<group>"; };
+		D748DC6529B8E20E006D1039 /* Lexema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lexema.swift; sourceTree = "<group>"; };
+		D748DC6729B8E215006D1039 /* LexemaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexemaType.swift; sourceTree = "<group>"; };
+		D748DC6B29B8E5BA006D1039 /* UniqueLexemaTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueLexemaTable.swift; sourceTree = "<group>"; };
+		D748DC6D29B93A27006D1039 /* SystemTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemTables.swift; sourceTree = "<group>"; };
+		D748DC6F29B93E7C006D1039 /* LexicalPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalPattern.swift; sourceTree = "<group>"; };
+		D748DC7329B95186006D1039 /* LexicalAnalyzerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAnalyzerViewModel.swift; sourceTree = "<group>"; };
+		D748DC7829B951B1006D1039 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		D748DC7B29B951E7006D1039 /* LexemaTokenGridModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexemaTokenGridModifier.swift; sourceTree = "<group>"; };
+		D748DC7D29B951FC006D1039 /* LexemaTextEditorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexemaTextEditorModifier.swift; sourceTree = "<group>"; };
+		D748DC7F29B9521B006D1039 /* LexicalAnalyzerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAnalyzerView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D748DC3C29B8C486006D1039 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D748DC3629B8C486006D1039 = {
+			isa = PBXGroup;
+			children = (
+				D748DC4129B8C486006D1039 /* LanguageParser */,
+				D748DC4029B8C486006D1039 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D748DC4029B8C486006D1039 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D748DC3F29B8C486006D1039 /* LanguageParser.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D748DC4129B8C486006D1039 /* LanguageParser */ = {
+			isa = PBXGroup;
+			children = (
+				D748DC4229B8C486006D1039 /* LanguageParserApp.swift */,
+				D748DC4429B8C486006D1039 /* ContentView.swift */,
+				D748DC5129B8C491006D1039 /* Source */,
+				D748DC4629B8C489006D1039 /* Assets.xcassets */,
+				D748DC4B29B8C489006D1039 /* LanguageParser.entitlements */,
+				D748DC4829B8C489006D1039 /* Preview Content */,
+			);
+			path = LanguageParser;
+			sourceTree = "<group>";
+		};
+		D748DC4829B8C489006D1039 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D748DC4929B8C489006D1039 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D748DC5129B8C491006D1039 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D748DC7529B9518E006D1039 /* Extensions */,
+				D748DC5229B8C4A0006D1039 /* LexicalAnalyzer */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		D748DC5229B8C4A0006D1039 /* LexicalAnalyzer */ = {
+			isa = PBXGroup;
+			children = (
+				D748DC5529B8C60E006D1039 /* Model */,
+				D748DC7229B95170006D1039 /* ViewModel */,
+				D748DC7129B9516C006D1039 /* View */,
+			);
+			path = LexicalAnalyzer;
+			sourceTree = "<group>";
+		};
+		D748DC5529B8C60E006D1039 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D748DC6429B8E203006D1039 /* Lexema */,
+				D748DC5329B8C4AF006D1039 /* LexicalAnalyzer.swift */,
+				D748DC6B29B8E5BA006D1039 /* UniqueLexemaTable.swift */,
+				D748DC6D29B93A27006D1039 /* SystemTables.swift */,
+				D748DC6F29B93E7C006D1039 /* LexicalPattern.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D748DC6429B8E203006D1039 /* Lexema */ = {
+			isa = PBXGroup;
+			children = (
+				D748DC6529B8E20E006D1039 /* Lexema.swift */,
+				D748DC6729B8E215006D1039 /* LexemaType.swift */,
+			);
+			path = Lexema;
+			sourceTree = "<group>";
+		};
+		D748DC7129B9516C006D1039 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D748DC7F29B9521B006D1039 /* LexicalAnalyzerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D748DC7229B95170006D1039 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D748DC7329B95186006D1039 /* LexicalAnalyzerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D748DC7529B9518E006D1039 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D748DC7829B951B1006D1039 /* View+Extension.swift */,
+				D748DC7A29B951D9006D1039 /* ViewModifiers */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D748DC7A29B951D9006D1039 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				D748DC7B29B951E7006D1039 /* LexemaTokenGridModifier.swift */,
+				D748DC7D29B951FC006D1039 /* LexemaTextEditorModifier.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D748DC3E29B8C486006D1039 /* LanguageParser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D748DC4E29B8C489006D1039 /* Build configuration list for PBXNativeTarget "LanguageParser" */;
+			buildPhases = (
+				D748DC3B29B8C486006D1039 /* Sources */,
+				D748DC3C29B8C486006D1039 /* Frameworks */,
+				D748DC3D29B8C486006D1039 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LanguageParser;
+			productName = LanguageParser;
+			productReference = D748DC3F29B8C486006D1039 /* LanguageParser.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D748DC3729B8C486006D1039 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					D748DC3E29B8C486006D1039 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = D748DC3A29B8C486006D1039 /* Build configuration list for PBXProject "LanguageParser" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D748DC3629B8C486006D1039;
+			productRefGroup = D748DC4029B8C486006D1039 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D748DC3E29B8C486006D1039 /* LanguageParser */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D748DC3D29B8C486006D1039 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D748DC4A29B8C489006D1039 /* Preview Assets.xcassets in Resources */,
+				D748DC4729B8C489006D1039 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D748DC3B29B8C486006D1039 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D748DC7C29B951E7006D1039 /* LexemaTokenGridModifier.swift in Sources */,
+				D748DC6829B8E215006D1039 /* LexemaType.swift in Sources */,
+				D748DC8029B9521B006D1039 /* LexicalAnalyzerView.swift in Sources */,
+				D748DC4529B8C486006D1039 /* ContentView.swift in Sources */,
+				D748DC7929B951B1006D1039 /* View+Extension.swift in Sources */,
+				D748DC5429B8C4AF006D1039 /* LexicalAnalyzer.swift in Sources */,
+				D748DC4329B8C486006D1039 /* LanguageParserApp.swift in Sources */,
+				D748DC7429B95186006D1039 /* LexicalAnalyzerViewModel.swift in Sources */,
+				D748DC6E29B93A27006D1039 /* SystemTables.swift in Sources */,
+				D748DC7E29B951FC006D1039 /* LexemaTextEditorModifier.swift in Sources */,
+				D748DC7029B93E7C006D1039 /* LexicalPattern.swift in Sources */,
+				D748DC6C29B8E5BB006D1039 /* UniqueLexemaTable.swift in Sources */,
+				D748DC6629B8E20E006D1039 /* Lexema.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D748DC4C29B8C489006D1039 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D748DC4D29B8C489006D1039 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D748DC4F29B8C489006D1039 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LanguageParser/LanguageParser.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LanguageParser/Preview Content\"";
+				DEVELOPMENT_TEAM = AUP52MS6LU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = snowlukin.uni.LanguageParser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D748DC5029B8C489006D1039 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LanguageParser/LanguageParser.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LanguageParser/Preview Content\"";
+				DEVELOPMENT_TEAM = AUP52MS6LU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = snowlukin.uni.LanguageParser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D748DC3A29B8C486006D1039 /* Build configuration list for PBXProject "LanguageParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D748DC4C29B8C489006D1039 /* Debug */,
+				D748DC4D29B8C489006D1039 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D748DC4E29B8C489006D1039 /* Build configuration list for PBXNativeTarget "LanguageParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D748DC4F29B8C489006D1039 /* Debug */,
+				D748DC5029B8C489006D1039 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D748DC3729B8C486006D1039 /* Project object */;
+}

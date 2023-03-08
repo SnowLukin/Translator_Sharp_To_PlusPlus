@@ -1,8 +1,8 @@
 //
 //  LexemaTokenGridModifier.swift
-//  TranslatorSharp2Plus
+//  LanguageParser
 //
-//  Created by Snow Lukin on 07.03.2023.
+//  Created by Snow Lukin on 09.03.2023.
 //
 
 import SwiftUI
