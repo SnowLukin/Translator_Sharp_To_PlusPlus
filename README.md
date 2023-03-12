@@ -21,7 +21,8 @@ TODO:
    - [x] Function Call: funcName(a, b);
    - [x] If else statements: if (a > b) { body } else { body } | if (a > b) { body }
    - [ ] Handle unary operators: a = -b;
-   - [ ] Function declaration(Not sure how it needs to be done): int funcName(int a, int b) { body }
+   - [ ] Function declaration: int funcName(int a, int b) { body }
+   - [ ] While loops: while(a > b) { body }
    - [ ] Add support for more keywords: class, namespace etc.
    - [ ] Code refactor
    
