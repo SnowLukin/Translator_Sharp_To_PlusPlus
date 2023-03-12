@@ -19,6 +19,10 @@ class UniqueLexemaTable {
         }
     }
     
+    func getLexema(for value: String) -> Lexema? {
+        hashmap[value]
+    }
+    
     func removeAll() {
         hashmap.removeAll()
         data.removeAll()

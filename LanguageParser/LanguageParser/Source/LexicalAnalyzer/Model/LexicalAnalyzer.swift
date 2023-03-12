@@ -38,7 +38,6 @@ final class LexicalAnalyzer {
             
             if !status { fatalError("Unexpected symbol.") }
         }
-        print(lexemas)
     }
     
     func reset() {
@@ -65,30 +64,29 @@ extension LexicalAnalyzer: SystemTables {
     }
     
     private func updateTables(with value: String, for type: LexemaType) {
+        var lexema: Lexema?
+        
         switch type {
         case .identifier where keywords[value] != nil:
-            let lexema = Lexema(id: keywords[value]!, value: value, type: .keyword)
-            lexemas.append(lexema)
+            lexema = Lexema(id: keywords[value]!, value: value, type: .keyword)
         case .identifier:
             identifierTable.update(with: value, for: type)
-            lexemas.append(identifierTable.data.last!)
+            lexema = identifierTable.getLexema(for: value)
         case .constant:
             constantTable.update(with: value, for: type)
-            lexemas.append(constantTable.data.last!)
+            lexema = constantTable.getLexema(for: value)
         case .literal:
             literalTable.update(with: value, for: type)
-            lexemas.append(literalTable.data.last!)
+            lexema = literalTable.getLexema(for: value)
         case .operator:
-            let lexema = Lexema(id: operators[value]!, value: value, type: type)
-            lexemas.append(lexema)
+            lexema = Lexema(id: operators[value]!, value: value, type: type)
         case .divider:
-            let lexema = Lexema(id: dividers[value]!, value: value, type: type)
-            lexemas.append(lexema)
+            lexema = Lexema(id: dividers[value]!, value: value, type: type)
         case .separator where includeSeparators:
-            let lexema = Lexema(id: separators[value]!, value: value, type: type)
-            lexemas.append(lexema)
+            lexema = Lexema(id: separators[value]!, value: value, type: type)
         default:
-            break
+            return
         }
+        lexemas.append(lexema!)
     }
 }

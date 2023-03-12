@@ -24,8 +24,8 @@ enum LexicalPattern: String {
     /// Should match string like: "something"
     case literal = "^(\"[^\n\"]*\")"
     
-    /// Should match strings like: 123, 0.456, .789, 1.23e4, 1.23E+4, -0.456, -1.23e-4, and so on.
-    case constant = #"^((-)?((\d)+([\.](\d)*([eE][+-]?(\d)+)?)?|([\.](\d)+([eE][+-]?(\d)+)?)))"#
+    /// Should match strings like: 123, 0.456, .789, 1.23e4, 1.23E+4, 0.456, 1.23e-4, and so on.
+    case constant = #"^(((\d)+([\.](\d)*([eE][+-]?(\d)+)?)?|([\.](\d)+([eE][+-]?(\d)+)?)))"#
 
     /// Should match strings like: {, }, (, ), `,`, ;, [, ]
     case divider = "^([\\{\\}\\(\\),;\\[\\]])"

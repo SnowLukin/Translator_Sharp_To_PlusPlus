@@ -16,6 +16,12 @@ struct ContentView: View {
                 } label: {
                     Text("Lexical analyzer")
                 }
+                
+                NavigationLink {
+                    PolishNotationView()
+                } label: {
+                    Text("Polish notation")
+                }
             }
         } detail: {
             Text("Select an item")

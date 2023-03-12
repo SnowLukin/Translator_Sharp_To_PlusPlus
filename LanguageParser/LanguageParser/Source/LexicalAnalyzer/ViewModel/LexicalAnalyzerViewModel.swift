@@ -23,6 +23,10 @@ class LexicalAnalyzerViewModel: ObservableObject {
         analyzer.constantTable.data
     }
     
+    var lexemas: [Lexema] {
+        analyzer.lexemas
+    }
+    
     private var analyzer = LexicalAnalyzer(includeSeparators: true)
     
     func run() {
