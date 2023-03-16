@@ -3,12 +3,12 @@ Programming langauge translator which translates C# code to C++
 
 ## 1. Lexical analyzer 
 
-Input: C# code
-
-Output: Tokens
-
    
-<img width="700" alt="Lexical Analyzer" src="Images/LexicalAnalyzer.png?raw=true">
+<img width="700" alt="Lexical Analyzer" src="Images/LexicalAnalyzer1.png?raw=true">
+
+<img width="700" alt="Lexical Analyzer" src="Images/LexicalAnalyzer2.png?raw=true">
+
+<img width="700" alt="Lexical Analyzer" src="Images/LexicalAnalyzer3.png?raw=true">
 
 ## 2. Polish notation
 
@@ -27,4 +27,6 @@ TODO:
    - [ ] Code refactor
    
 
-<img width="700" alt="Lexical Analyzer" src="Images/PolishNotation.png?raw=true">
+<img width="700" alt="Lexical Analyzer" src="Images/PolishNotation1.png?raw=true">
+
+<img width="700" alt="Lexical Analyzer" src="Images/PolishNotation2.png?raw=true">
