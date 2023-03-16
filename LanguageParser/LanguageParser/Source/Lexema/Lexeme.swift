@@ -1,5 +1,5 @@
 //
-//  Lexema.swift
+//  Lexeme.swift
 //  LanguageParser
 //
 //  Created by Snow Lukin on 08.03.2023.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Lexema: Hashable {
+struct Lexeme: Hashable {
     private(set) var id: Int
     private(set) var value: String
-    private(set) var type: LexemaType
+    private(set) var type: LexemeType
     
     var rawValue: String {
         switch type {
@@ -26,28 +26,19 @@ struct Lexema: Hashable {
     }
 }
 
-extension Lexema: SystemTables {
+extension Lexeme {
     var precedence: Int {
-        switch type {
-        case .functionCall, .arrayAddressCounter, .mark:
-            return 0
-        case .keyword:
-            return precedenceTable[value, default: 10]
-        case .divider, .operator:
-            return precedenceTable[value, default: 10]
-        default:
-            return 100
-        }
+        SystemTable.getPrecedence(for: value, with: type)
     }
 }
 
-extension Lexema: Comparable {
-    static func < (lhs: Lexema, rhs: Lexema) -> Bool {
+extension Lexeme: Comparable {
+    static func < (lhs: Lexeme, rhs: Lexeme) -> Bool {
         lhs.precedence < rhs.precedence
     }
 }
 
-extension Lexema {
+extension Lexeme {
     var isOpeningSquareBracket: Bool {
         type == .divider && value == "["
     }

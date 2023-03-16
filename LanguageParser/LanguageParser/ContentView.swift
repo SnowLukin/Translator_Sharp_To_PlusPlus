@@ -8,24 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                NavigationLink {
-                    LexicalAnalyzerView()
-                } label: {
-                    Text("Lexical analyzer")
-                }
-                
-                NavigationLink {
-                    PolishNotationView()
-                } label: {
-                    Text("Polish notation")
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
+        MainView()
     }
 }
 

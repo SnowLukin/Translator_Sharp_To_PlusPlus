@@ -45,9 +45,3 @@ extension Stack: Sequence {
         return AnyIterator { curr.pop() }
     }
 }
-
-extension Stack where Element == Lexema {
-    var topOperator: Lexema? {
-        self.array.last(where: { $0.type == .operator })
-    }
-}

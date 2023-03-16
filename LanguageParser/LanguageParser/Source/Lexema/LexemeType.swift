@@ -1,5 +1,5 @@
 //
-//  LexemaType.swift
+//  LexemeType.swift
 //  LanguageParser
 //
 //  Created by Snow Lukin on 08.03.2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum LexemaType: String, Hashable {
+enum LexemeType: String, Hashable {
     case identifier = "I"
     case keyword = "K"
     case constant = "C"

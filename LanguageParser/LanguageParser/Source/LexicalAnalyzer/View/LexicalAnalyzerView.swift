@@ -7,95 +7,67 @@
 
 import SwiftUI
 
+
 struct LexicalAnalyzerView: View {
+    
+    enum LexicalSection {
+        case output
+        case tables
+    }
+    
     @StateObject private var viewModel = LexicalAnalyzerViewModel()
+    @State private var lexicalSection = LexicalSection.output
+    var inputCode: String
     
     var body: some View {
-        VStack {
-            HStack {
-                TextEditor(text: $viewModel.code)
-                    .lexemaTE(viewModel.code.isEmpty, "C# code")
-                TextEditor(text: $viewModel.lexicalCode)
-                    .lexemaTE(viewModel.lexicalCode.isEmpty, "Lexemas")
-                    .disabled(true)
-                VStack {
-                    userTokenGrid(viewModel.identifierLexemas)
-                        .lexemaToken(viewModel.identifierLexemas.isEmpty, "Identifiers")
-                    userTokenGrid(viewModel.constantLexemas, viewModel.literalLexemas)
-                        .lexemaToken(viewModel.constantLexemas.isEmpty && viewModel.literalLexemas.isEmpty, "Values")
-                }
+        VStack(spacing: 0) {
+            headerButtons
+            
+            switch lexicalSection {
+            case .output:
+                TextEditor(text: $viewModel.lexemesCode)
+                    .modifier(CodingTextEditModifier())
+            case .tables:
+                tableSectionBody
             }
-            HStack {
-                runButton
-                resetButton
-            }
-        }.padding()
+        }
+        .onAppear {
+            viewModel.update(with: inputCode)
+        }
     }
 }
-
-struct LexicalAnalyzerView_Previews: PreviewProvider {
-    static var previews: some View {
-        LexicalAnalyzerView()
-    }
-}
-
 
 extension LexicalAnalyzerView {
-    private var runButton: some View {
-        Button {
-            viewModel.run()
-        } label: {
-            Circle()
-                .fill(Color.blue)
-                .frame(width: 50, height: 50)
-                .overlay {
-                    Image(systemName: "play.fill")
-                        .font(.title)
-                }
-                .padding()
-        }.buttonStyle(.plain)
-    }
     
-    private var resetButton: some View {
-        Button {
-            viewModel.reset()
-        } label: {
-            Text("Reset")
-                .font(.headline)
-                .frame(width: 100, height: 50)
-                .background(.red)
-                .cornerRadius(10)
-        }
-        .buttonStyle(.plain)
-    }
-    
-    private func userTokenGrid(_ lexemas1: [Lexema], _ lexemas2: [Lexema] = []) -> some View {
-        ScrollView(.vertical) {
-            userTokenList(lexemas1)
-                .padding([.horizontal, .top])
-            
-            if !lexemas2.isEmpty {
-                userTokenList(lexemas2)
-                    .padding([.horizontal, .bottom])
+    private var headerButtons: some View {
+        HStack(spacing: 0) {
+            CodeHeaderButton(text: "Output", condition: lexicalSection == .output) {
+                lexicalSection = .output
+            }
+            CodeHeaderButton(text: "Generated/System Tables", condition: lexicalSection == .tables) {
+                lexicalSection = .tables
             }
         }
-            .frame(maxHeight: .infinity)
-            .frame(width: 200)
-            .background(Color("background"))
-            .cornerRadius(10)
     }
     
-    private func userTokenList(_ lexemas: [Lexema]) -> some View {
-        VStack(spacing: 5) {
-            ForEach(lexemas, id: \.self) { lexema in
-                HStack {
-                    Text(lexema.value)
-                    Spacer()
-                    Divider()
-                    Text(lexema.rawValue)
-                        .frame(width: 40, alignment: .trailing)
-                }.frame(height: 15)
+    private var tableSectionBody: some View {
+        ScrollView {
+            LazyVGrid(
+                columns: [
+                    GridItem(.adaptive(minimum: 300), alignment: .top),
+                    GridItem(.adaptive(minimum: 300), alignment: .top),
+                    GridItem(.adaptive(minimum: 300), alignment: .top)
+                ], spacing: 20)
+            {
+                LexemeTableView(lexemes: viewModel.identifierLexemas)
+                LexemeTableView(lexemes: viewModel.constantLexemas)
+                LexemeTableView(lexemes: viewModel.literalLexemas)
+                
+                LexemeTableView(lexemes: SystemTable.keyword.getTable())
+                LexemeTableView(lexemes: SystemTable.divider.getTable())
+                LexemeTableView(lexemes: SystemTable.operator.getTable())
             }
+            .padding()
         }
     }
 }

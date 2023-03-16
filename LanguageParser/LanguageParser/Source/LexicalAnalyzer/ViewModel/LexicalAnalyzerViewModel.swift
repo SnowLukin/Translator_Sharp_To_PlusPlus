@@ -8,35 +8,29 @@
 import SwiftUI
 
 class LexicalAnalyzerViewModel: ObservableObject {
-    @Published var code = String()
-    @Published var lexicalCode = String()
     
-    var identifierLexemas: [Lexema] {
-        analyzer.identifierTable.data
-    }
-    
-    var literalLexemas: [Lexema] {
-        analyzer.literalTable.data
-    }
-    
-    var constantLexemas: [Lexema] {
-        analyzer.constantTable.data
-    }
-    
-    var lexemas: [Lexema] {
-        analyzer.lexemas
-    }
+    @Published var lexemesCode = String()
     
     private var analyzer = LexicalAnalyzer(includeSeparators: true)
     
-    func run() {
-        analyzer.convert(code)
-        lexicalCode = analyzer.lexemas.map { $0.rawValue }.joined()
+    var identifierLexemas: [Lexeme] {
+        analyzer.getUserTable(for: .identifier)
     }
     
-    func reset() {
-        analyzer.reset()
-        code.removeAll()
-        lexicalCode = analyzer.lexemas.map { $0.rawValue }.joined()
+    var literalLexemas: [Lexeme] {
+        analyzer.getUserTable(for: .literal)
+    }
+    
+    var constantLexemas: [Lexeme] {
+        analyzer.getUserTable(for: .constant)
+    }
+    
+    var lexemas: [Lexeme] {
+        analyzer.lexemas
+    }
+    
+    func update(with code: String) {
+        analyzer.convert(code)
+        lexemesCode = analyzer.lexemas.map { $0.rawValue }.joined()
     }
 }

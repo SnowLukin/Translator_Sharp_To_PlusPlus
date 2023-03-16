@@ -12,15 +12,12 @@
 		D748DC4729B8C489006D1039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D748DC4629B8C489006D1039 /* Assets.xcassets */; };
 		D748DC4A29B8C489006D1039 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D748DC4929B8C489006D1039 /* Preview Assets.xcassets */; };
 		D748DC5429B8C4AF006D1039 /* LexicalAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC5329B8C4AF006D1039 /* LexicalAnalyzer.swift */; };
-		D748DC6629B8E20E006D1039 /* Lexema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC6529B8E20E006D1039 /* Lexema.swift */; };
-		D748DC6829B8E215006D1039 /* LexemaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC6729B8E215006D1039 /* LexemaType.swift */; };
+		D748DC6629B8E20E006D1039 /* Lexeme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC6529B8E20E006D1039 /* Lexeme.swift */; };
+		D748DC6829B8E215006D1039 /* LexemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC6729B8E215006D1039 /* LexemeType.swift */; };
 		D748DC6C29B8E5BB006D1039 /* UniqueLexemaTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC6B29B8E5BA006D1039 /* UniqueLexemaTable.swift */; };
-		D748DC6E29B93A27006D1039 /* SystemTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC6D29B93A27006D1039 /* SystemTables.swift */; };
+		D748DC6E29B93A27006D1039 /* SystemTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC6D29B93A27006D1039 /* SystemTable.swift */; };
 		D748DC7029B93E7C006D1039 /* LexicalPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC6F29B93E7C006D1039 /* LexicalPattern.swift */; };
 		D748DC7429B95186006D1039 /* LexicalAnalyzerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC7329B95186006D1039 /* LexicalAnalyzerViewModel.swift */; };
-		D748DC7929B951B1006D1039 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC7829B951B1006D1039 /* View+Extension.swift */; };
-		D748DC7C29B951E7006D1039 /* LexemaTokenGridModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC7B29B951E7006D1039 /* LexemaTokenGridModifier.swift */; };
-		D748DC7E29B951FC006D1039 /* LexemaTextEditorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC7D29B951FC006D1039 /* LexemaTextEditorModifier.swift */; };
 		D748DC8029B9521B006D1039 /* LexicalAnalyzerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D748DC7F29B9521B006D1039 /* LexicalAnalyzerView.swift */; };
 		D7F09AF729B9EF9900BD70D7 /* PolishNotationConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09AF629B9EF9900BD70D7 /* PolishNotationConverter.swift */; };
 		D7F09AF929BA116900BD70D7 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09AF829BA116900BD70D7 /* Stack.swift */; };
@@ -28,6 +25,13 @@
 		D7F09B0029BA23D400BD70D7 /* PolishNotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09AFF29BA23D400BD70D7 /* PolishNotationView.swift */; };
 		D7F09B0229BA23E400BD70D7 /* PolishNotationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09B0129BA23E400BD70D7 /* PolishNotationViewModel.swift */; };
 		D7F09B0A29BB609B00BD70D7 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09B0929BB609B00BD70D7 /* Array+Extension.swift */; };
+		D7F09B1F29C1140100BD70D7 /* CodingSpaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09B1E29C1140100BD70D7 /* CodingSpaceView.swift */; };
+		D7F09B2429C3114100BD70D7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09B2329C3114100BD70D7 /* MainViewModel.swift */; };
+		D7F09B3A29C3B06600BD70D7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09B3929C3B06600BD70D7 /* MainView.swift */; };
+		D7F09B3E29C3CE7C00BD70D7 /* LexemeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09B3D29C3CE7C00BD70D7 /* LexemeTableView.swift */; };
+		D7F09B4029C3CE9D00BD70D7 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09B3F29C3CE9D00BD70D7 /* Color+Extension.swift */; };
+		D7F09B4329C3CF2900BD70D7 /* CodingTextEditModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09B4229C3CF2900BD70D7 /* CodingTextEditModifier.swift */; };
+		D7F09B4529C3D19800BD70D7 /* CodeHeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09B4429C3D19800BD70D7 /* CodeHeaderButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,15 +42,12 @@
 		D748DC4929B8C489006D1039 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D748DC4B29B8C489006D1039 /* LanguageParser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LanguageParser.entitlements; sourceTree = "<group>"; };
 		D748DC5329B8C4AF006D1039 /* LexicalAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAnalyzer.swift; sourceTree = "<group>"; };
-		D748DC6529B8E20E006D1039 /* Lexema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lexema.swift; sourceTree = "<group>"; };
-		D748DC6729B8E215006D1039 /* LexemaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexemaType.swift; sourceTree = "<group>"; };
+		D748DC6529B8E20E006D1039 /* Lexeme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lexeme.swift; sourceTree = "<group>"; };
+		D748DC6729B8E215006D1039 /* LexemeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexemeType.swift; sourceTree = "<group>"; };
 		D748DC6B29B8E5BA006D1039 /* UniqueLexemaTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueLexemaTable.swift; sourceTree = "<group>"; };
-		D748DC6D29B93A27006D1039 /* SystemTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemTables.swift; sourceTree = "<group>"; };
+		D748DC6D29B93A27006D1039 /* SystemTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemTable.swift; sourceTree = "<group>"; };
 		D748DC6F29B93E7C006D1039 /* LexicalPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalPattern.swift; sourceTree = "<group>"; };
 		D748DC7329B95186006D1039 /* LexicalAnalyzerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAnalyzerViewModel.swift; sourceTree = "<group>"; };
-		D748DC7829B951B1006D1039 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		D748DC7B29B951E7006D1039 /* LexemaTokenGridModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexemaTokenGridModifier.swift; sourceTree = "<group>"; };
-		D748DC7D29B951FC006D1039 /* LexemaTextEditorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexemaTextEditorModifier.swift; sourceTree = "<group>"; };
 		D748DC7F29B9521B006D1039 /* LexicalAnalyzerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexicalAnalyzerView.swift; sourceTree = "<group>"; };
 		D7F09AF629B9EF9900BD70D7 /* PolishNotationConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolishNotationConverter.swift; sourceTree = "<group>"; };
 		D7F09AF829BA116900BD70D7 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -55,6 +56,13 @@
 		D7F09B0129BA23E400BD70D7 /* PolishNotationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolishNotationViewModel.swift; sourceTree = "<group>"; };
 		D7F09B0929BB609B00BD70D7 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		D7F09B1429BCA25000BD70D7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D7F09B1E29C1140100BD70D7 /* CodingSpaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingSpaceView.swift; sourceTree = "<group>"; };
+		D7F09B2329C3114100BD70D7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		D7F09B3929C3B06600BD70D7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D7F09B3D29C3CE7C00BD70D7 /* LexemeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexemeTableView.swift; sourceTree = "<group>"; };
+		D7F09B3F29C3CE9D00BD70D7 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		D7F09B4229C3CF2900BD70D7 /* CodingTextEditModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTextEditModifier.swift; sourceTree = "<group>"; };
+		D7F09B4429C3D19800BD70D7 /* CodeHeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeHeaderButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +117,10 @@
 		D748DC5129B8C491006D1039 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				D748DC6429B8E203006D1039 /* Lexema */,
-				D748DC7A29B951D9006D1039 /* ViewModifiers */,
+				D7F09B4129C3CF1C00BD70D7 /* ViewModifiers */,
 				D748DC7529B9518E006D1039 /* Extensions */,
+				D748DC6429B8E203006D1039 /* Lexema */,
+				D7F09B3829C3B04D00BD70D7 /* MainView */,
 				D748DC5229B8C4A0006D1039 /* LexicalAnalyzer */,
 				D7F09AF529B9EF7B00BD70D7 /* PolishNotation */,
 			);
@@ -141,9 +150,9 @@
 		D748DC6429B8E203006D1039 /* Lexema */ = {
 			isa = PBXGroup;
 			children = (
-				D748DC6D29B93A27006D1039 /* SystemTables.swift */,
-				D748DC6529B8E20E006D1039 /* Lexema.swift */,
-				D748DC6729B8E215006D1039 /* LexemaType.swift */,
+				D748DC6D29B93A27006D1039 /* SystemTable.swift */,
+				D748DC6529B8E20E006D1039 /* Lexeme.swift */,
+				D748DC6729B8E215006D1039 /* LexemeType.swift */,
 			);
 			path = Lexema;
 			sourceTree = "<group>";
@@ -152,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				D748DC7F29B9521B006D1039 /* LexicalAnalyzerView.swift */,
+				D7F09B3D29C3CE7C00BD70D7 /* LexemeTableView.swift */,
+				D7F09B4429C3D19800BD70D7 /* CodeHeaderButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,18 +180,9 @@
 			children = (
 				D7F09AFA29BA224A00BD70D7 /* Sequence+Lexema.swift */,
 				D7F09B0929BB609B00BD70D7 /* Array+Extension.swift */,
-				D748DC7829B951B1006D1039 /* View+Extension.swift */,
+				D7F09B3F29C3CE9D00BD70D7 /* Color+Extension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		D748DC7A29B951D9006D1039 /* ViewModifiers */ = {
-			isa = PBXGroup;
-			children = (
-				D748DC7B29B951E7006D1039 /* LexemaTokenGridModifier.swift */,
-				D748DC7D29B951FC006D1039 /* LexemaTextEditorModifier.swift */,
-			);
-			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 		D7F09AF529B9EF7B00BD70D7 /* PolishNotation */ = {
@@ -224,6 +226,40 @@
 				D7F09B1429BCA25000BD70D7 /* XCTest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7F09B3829C3B04D00BD70D7 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				D7F09B3C29C3B1F600BD70D7 /* ViewModel */,
+				D7F09B3B29C3B1F300BD70D7 /* View */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		D7F09B3B29C3B1F300BD70D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D7F09B3929C3B06600BD70D7 /* MainView.swift */,
+				D7F09B1E29C1140100BD70D7 /* CodingSpaceView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D7F09B3C29C3B1F600BD70D7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D7F09B2329C3114100BD70D7 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D7F09B4129C3CF1C00BD70D7 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				D7F09B4229C3CF2900BD70D7 /* CodingTextEditModifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,25 +332,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7F09B1F29C1140100BD70D7 /* CodingSpaceView.swift in Sources */,
+				D7F09B4329C3CF2900BD70D7 /* CodingTextEditModifier.swift in Sources */,
+				D7F09B4029C3CE9D00BD70D7 /* Color+Extension.swift in Sources */,
+				D7F09B2429C3114100BD70D7 /* MainViewModel.swift in Sources */,
 				D7F09AFB29BA224A00BD70D7 /* Sequence+Lexema.swift in Sources */,
-				D748DC7C29B951E7006D1039 /* LexemaTokenGridModifier.swift in Sources */,
 				D7F09B0029BA23D400BD70D7 /* PolishNotationView.swift in Sources */,
 				D7F09B0A29BB609B00BD70D7 /* Array+Extension.swift in Sources */,
+				D7F09B3A29C3B06600BD70D7 /* MainView.swift in Sources */,
 				D7F09AF929BA116900BD70D7 /* Stack.swift in Sources */,
-				D748DC6829B8E215006D1039 /* LexemaType.swift in Sources */,
+				D7F09B3E29C3CE7C00BD70D7 /* LexemeTableView.swift in Sources */,
+				D748DC6829B8E215006D1039 /* LexemeType.swift in Sources */,
 				D748DC8029B9521B006D1039 /* LexicalAnalyzerView.swift in Sources */,
+				D7F09B4529C3D19800BD70D7 /* CodeHeaderButton.swift in Sources */,
 				D748DC4529B8C486006D1039 /* ContentView.swift in Sources */,
-				D748DC7929B951B1006D1039 /* View+Extension.swift in Sources */,
 				D7F09AF729B9EF9900BD70D7 /* PolishNotationConverter.swift in Sources */,
 				D748DC5429B8C4AF006D1039 /* LexicalAnalyzer.swift in Sources */,
 				D748DC4329B8C486006D1039 /* LanguageParserApp.swift in Sources */,
 				D748DC7429B95186006D1039 /* LexicalAnalyzerViewModel.swift in Sources */,
-				D748DC6E29B93A27006D1039 /* SystemTables.swift in Sources */,
-				D748DC7E29B951FC006D1039 /* LexemaTextEditorModifier.swift in Sources */,
+				D748DC6E29B93A27006D1039 /* SystemTable.swift in Sources */,
 				D748DC7029B93E7C006D1039 /* LexicalPattern.swift in Sources */,
 				D7F09B0229BA23E400BD70D7 /* PolishNotationViewModel.swift in Sources */,
 				D748DC6C29B8E5BB006D1039 /* UniqueLexemaTable.swift in Sources */,
-				D748DC6629B8E20E006D1039 /* Lexema.swift in Sources */,
+				D748DC6629B8E20E006D1039 /* Lexeme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

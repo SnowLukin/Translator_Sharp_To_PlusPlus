@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Sequence where Element == Lexema {
+extension Sequence where Element == Lexeme {
     var stringRepresentation: String {
         self.map { $0.rawValue }.joined()
     }

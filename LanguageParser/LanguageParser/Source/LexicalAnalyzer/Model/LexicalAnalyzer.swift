@@ -7,12 +7,18 @@
 
 import Foundation
 
+enum UserTable {
+    case identifier
+    case literal
+    case constant
+}
+
 final class LexicalAnalyzer {
     
-    private(set) var lexemas: [Lexema] = []
-    let identifierTable = UniqueLexemaTable()
-    let literalTable = UniqueLexemaTable()
-    let constantTable = UniqueLexemaTable()
+    private(set) var lexemas: [Lexeme] = []
+    private let identifierTable = UniqueLexemaTable()
+    private let literalTable = UniqueLexemaTable()
+    private let constantTable = UniqueLexemaTable()
     
     private var includeSeparators: Bool
     
@@ -46,10 +52,21 @@ final class LexicalAnalyzer {
         literalTable.removeAll()
         constantTable.removeAll()
     }
+    
+    func getUserTable(for type: UserTable) -> [Lexeme] {
+        switch type {
+        case .identifier:
+            return identifierTable.data
+        case .constant:
+            return constantTable.data
+        case .literal:
+            return literalTable.data
+        }
+    }
 }
 
-extension LexicalAnalyzer: SystemTables {
-    typealias State = (type: LexemaType, pattern: String)
+extension LexicalAnalyzer {
+    typealias State = (type: LexemeType, pattern: String)
     
     private var states: [State] {
         [
@@ -63,12 +80,12 @@ extension LexicalAnalyzer: SystemTables {
         ]
     }
     
-    private func updateTables(with value: String, for type: LexemaType) {
-        var lexema: Lexema?
+    private func updateTables(with value: String, for type: LexemeType) {
+        var lexema: Lexeme?
         
         switch type {
-        case .identifier where keywords[value] != nil:
-            lexema = Lexema(id: keywords[value]!, value: value, type: .keyword)
+        case .identifier where SystemTable.keyword.getId(for: value) != nil:
+            lexema = Lexeme(id: SystemTable.keyword.getId(for: value)!, value: value, type: .keyword)
         case .identifier:
             identifierTable.update(with: value, for: type)
             lexema = identifierTable.getLexema(for: value)
@@ -79,11 +96,11 @@ extension LexicalAnalyzer: SystemTables {
             literalTable.update(with: value, for: type)
             lexema = literalTable.getLexema(for: value)
         case .operator:
-            lexema = Lexema(id: operators[value]!, value: value, type: type)
+            lexema = Lexeme(id: SystemTable.operator.getId(for: value)!, value: value, type: type)
         case .divider:
-            lexema = Lexema(id: dividers[value]!, value: value, type: type)
+            lexema = Lexeme(id: SystemTable.divider.getId(for: value)!, value: value, type: type)
         case .separator where includeSeparators:
-            lexema = Lexema(id: separators[value]!, value: value, type: type)
+            lexema = Lexeme(id: SystemTable.separator.getId(for: value)!, value: value, type: type)
         default:
             return
         }

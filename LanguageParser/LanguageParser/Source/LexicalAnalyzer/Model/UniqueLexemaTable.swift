@@ -8,18 +8,18 @@
 import Foundation
 
 class UniqueLexemaTable {
-    private var hashmap: [String:Lexema] = [:]
-    private(set) var data: [Lexema] = []
+    private var hashmap: [String:Lexeme] = [:]
+    private(set) var data: [Lexeme] = []
     
-    func update(with value: String, for type: LexemaType) {
+    func update(with value: String, for type: LexemeType) {
         if hashmap[value] == nil {
-            let lexema = Lexema(id: hashmap.count, value: value, type: type)
+            let lexema = Lexeme(id: hashmap.count, value: value, type: type)
             hashmap[value] = lexema
             data.append(lexema)
         }
     }
     
-    func getLexema(for value: String) -> Lexema? {
+    func getLexema(for value: String) -> Lexeme? {
         hashmap[value]
     }
     
