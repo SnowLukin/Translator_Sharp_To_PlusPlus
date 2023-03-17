@@ -23,4 +23,7 @@ enum LexemeType: String, Hashable {
     case goto = "Goto"
     case mark = "M"
     case declaration = "DC"
+    case loopMark = "LM"
+    case funcBodyStart = "FBS"
+    case funcBodyEnd = "FBE"
 }

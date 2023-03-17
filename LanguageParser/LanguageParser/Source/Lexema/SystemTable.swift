@@ -15,7 +15,7 @@ enum SystemTable {
     
     static func getPrecedence(for value: String, with type: LexemeType) -> Int {
         switch type {
-        case .functionCall, .arrayAddressCounter, .mark:
+        case .functionCall, .arrayAddressCounter, .mark, .loopMark:
             return 0
         case .keyword:
             return precedenceTable[value, default: 10]
@@ -58,6 +58,7 @@ extension SystemTable {
     private static var precedenceTable: [String:Int] {
         [
             "if" : 0,
+            "while" : 0,
             "(" : 0,
             "[" : 0,
             "return" : 0,

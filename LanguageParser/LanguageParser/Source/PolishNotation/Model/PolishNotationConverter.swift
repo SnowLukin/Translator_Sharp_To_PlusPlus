@@ -7,6 +7,20 @@
 
 import Foundation
 
+/*
+ while(a > b) {
+    a++;
+ }
+ 
+ a b > MC(1) a ++ MC(1):
+ 
+ int funcName(int a) {
+    a++;
+ }
+ 
+ funcName a 1 int 2 1 int Start a ++ End
+ */
+
 
 class PolishNotationConverter {
     
@@ -89,6 +103,8 @@ extension PolishNotationConverter {
             }
         case "return":
             stack.push(lexema)
+        case "while":
+            stack.push(lexema)
         case "int", "float", "string":
             stack.push(lexema)
             stack.push(Lexeme(id: 1, value: "DC(1)", type: .declaration))
@@ -125,7 +141,7 @@ extension PolishNotationConverter {
             }
         case ",":
             
-            if stack.top?.type == .declaration, let topLexema = stack.pop() {
+            if stack.top?.type == .declaration, let nextLexeme = lexemes.at(currentIndex + 1), nextLexeme.type != .keyword, let topLexema = stack.pop() {
                 let nextID = topLexema.id + 1
                 let newLexema = Lexeme(id: nextID, value: "DC(\(nextID))", type: .declaration)
                 stack.push(newLexema)
@@ -175,7 +191,21 @@ extension PolishNotationConverter {
                 output.append(popedLexema)
             }
         case "{":
+            var isFunctionDeclaration = false
+            
+            if output.last?.type == .functionCall {
+                isFunctionDeclaration.toggle()
+            }
+            
             while let popedLexema = stack.pop() {
+                
+                if popedLexema.type == .keyword, popedLexema.value == "while" {
+                    let mark = Lexeme(id: 1, value: "MC1_Conditional", type: .loopMark)
+                    stack.push(mark)
+                    output.append(mark)
+                    break
+                }
+                
                 if popedLexema.type == .keyword, popedLexema.value == "if" {
                     let mark = Lexeme(id: 1, value: "M1", type: .mark)
                     let markForOutput = Lexeme(id: 1, value: "M1_Conditional", type: .mark)
@@ -183,17 +213,35 @@ extension PolishNotationConverter {
                     output.append(markForOutput)
                     break
                 }
+                
                 if popedLexema.type == .mark {
                     stack.push(popedLexema)
                     break
                 }
                 output.append(popedLexema)
             }
+            if isFunctionDeclaration {
+                let startBodyLexeme = Lexeme(id: 0, value: "FBS", type: .funcBodyStart)
+                output.append(startBodyLexeme)
+                stack.push(startBodyLexeme)
+            }
         case "}":
             if let nextLexema = lexemes.at(currentIndex + 1), nextLexema.type == .keyword, nextLexema.value == "else" {
                 break
             }
             while let popedLexema = stack.pop() {
+                
+                if popedLexema.type == .funcBodyStart {
+                    let endBodyLexeme = Lexeme(id: 0, value: "FBE", type: .funcBodyEnd)
+                    output.append(endBodyLexeme)
+                    break
+                }
+                
+                if popedLexema.type == .loopMark {
+                    let newLexema = Lexeme(id: popedLexema.id, value: popedLexema.value + ":", type: .loopMark)
+                    output.append(newLexema)
+                    break
+                }
                 
                 if popedLexema.type == .mark {
                     let newLexema = Lexeme(id: popedLexema.id, value: popedLexema.value + ":", type: .mark)
