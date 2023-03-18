@@ -12,25 +12,8 @@ struct MainView: View {
     
     var body: some View {
         NavigationSplitView {
-            List {
-                NavigationLink {
-                    CodingSpaceView()
-                        .environmentObject(viewModel)
-                } label: {
-                    Text("Coding Space")
-                }
-                
-                NavigationLink {
-                    LexicalAnalyzerView(inputCode: viewModel.savedCode)
-                } label: {
-                    Text("Lexical analyzer")
-                }
-                
-                NavigationLink {
-                    PolishNotationView(inputCode: viewModel.savedCode)
-                } label: {
-                    Text("Polish notation")
-                }
+            List(MainSection.allCases, selection: $viewModel.selectedMainSection) { section in
+                Text(section.rawValue)
             }
             .toolbar {
                 ToolbarItem {
@@ -40,11 +23,30 @@ struct MainView: View {
                         Image(systemName: "play.fill")
                     }
                     .keyboardShortcut("r", modifiers: .command)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+                
+                ToolbarItem {
+                    Button {
+                        viewModel.nextSection()
+                    } label: {
+                        Image(systemName: "play.fill")
+                    }
+                    .keyboardShortcut(.downArrow, modifiers: .command)
+                    .hidden()
                 }
             }
         } detail: {
-            Text("Select an item")
+            switch viewModel.selectedMainSection {
+            case .codingSpace:
+                CodingSpaceView()
+                    .environmentObject(viewModel)
+            case .lexicalAnalyzer:
+                LexicalAnalyzerView(inputCode: viewModel.savedCode)
+            case .polishNotation:
+                PolishNotationView(inputCode: viewModel.savedCode)
+            default:
+                Text("Select module.")
+            }
         }
     }
 }
