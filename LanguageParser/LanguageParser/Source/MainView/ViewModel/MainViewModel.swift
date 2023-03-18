@@ -14,9 +14,18 @@ class MainViewModel: ObservableObject {
     string c = \"Something\";
     """
     
+    @Published var selectedMainSection: MainSection?
     @Published private(set) var savedCode: String = ""
     
     func updateCode(with newCode: String) {
         savedCode = newCode
+    }
+    
+    func nextSection() {
+        if let currentSelection = selectedMainSection {
+            selectedMainSection = currentSelection.next()
+        } else {
+            selectedMainSection = .codingSpace
+        }
     }
 }

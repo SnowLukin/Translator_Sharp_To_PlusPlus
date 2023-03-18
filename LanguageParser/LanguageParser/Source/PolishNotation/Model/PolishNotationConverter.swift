@@ -7,21 +7,6 @@
 
 import Foundation
 
-/*
- while(a > b) {
-    a++;
- }
- 
- a b > MC(1) a ++ MC(1):
- 
- int funcName(int a) {
-    a++;
- }
- 
- funcName a 1 int 2 1 int Start a ++ End
- */
-
-
 class PolishNotationConverter {
     
     private var lexemes = [Lexeme]()
@@ -191,8 +176,8 @@ extension PolishNotationConverter {
                 output.append(popedLexema)
             }
         case "{":
+            /// Check if current bracket goes after function call. If so we will be adding FuncStart and FuncEnd tokens
             var isFunctionDeclaration = false
-            
             if output.last?.type == .functionCall {
                 isFunctionDeclaration.toggle()
             }

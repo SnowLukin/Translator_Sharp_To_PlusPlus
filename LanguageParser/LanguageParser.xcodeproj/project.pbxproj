@@ -32,6 +32,7 @@
 		D7F09B4029C3CE9D00BD70D7 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09B3F29C3CE9D00BD70D7 /* Color+Extension.swift */; };
 		D7F09B4329C3CF2900BD70D7 /* CodingTextEditModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09B4229C3CF2900BD70D7 /* CodingTextEditModifier.swift */; };
 		D7F09B4529C3D19800BD70D7 /* CodeHeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09B4429C3D19800BD70D7 /* CodeHeaderButton.swift */; };
+		D7F09B4829C590F100BD70D7 /* MainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F09B4729C590F100BD70D7 /* MainSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		D7F09B3F29C3CE9D00BD70D7 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		D7F09B4229C3CF2900BD70D7 /* CodingTextEditModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTextEditModifier.swift; sourceTree = "<group>"; };
 		D7F09B4429C3D19800BD70D7 /* CodeHeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeHeaderButton.swift; sourceTree = "<group>"; };
+		D7F09B4729C590F100BD70D7 /* MainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 		D7F09B3829C3B04D00BD70D7 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				D7F09B4629C590E100BD70D7 /* Model */,
 				D7F09B3C29C3B1F600BD70D7 /* ViewModel */,
 				D7F09B3B29C3B1F300BD70D7 /* View */,
 			);
@@ -260,6 +263,14 @@
 				D7F09B4229C3CF2900BD70D7 /* CodingTextEditModifier.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		D7F09B4629C590E100BD70D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D7F09B4729C590F100BD70D7 /* MainSection.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +365,7 @@
 				D748DC7029B93E7C006D1039 /* LexicalPattern.swift in Sources */,
 				D7F09B0229BA23E400BD70D7 /* PolishNotationViewModel.swift in Sources */,
 				D748DC6C29B8E5BB006D1039 /* UniqueLexemaTable.swift in Sources */,
+				D7F09B4829C590F100BD70D7 /* MainSection.swift in Sources */,
 				D748DC6629B8E20E006D1039 /* Lexeme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
